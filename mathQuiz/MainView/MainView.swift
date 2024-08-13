@@ -5,8 +5,9 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var viewModel = MainViewModel()
-    @State private var showThemes: Bool = false
+    @ObservedObject var viewModel: MainViewModel
+    var coordinator: MainCoordinator
+    @State var isShowingTopics = false
     
     var body: some View {
         NavigationView {
@@ -42,9 +43,7 @@ struct MainView: View {
                         .padding(.vertical)
                         Spacer()
                         Button(action: {
-                            withAnimation {
-                                showThemes.toggle()
-                            }
+                            isShowingTopics.toggle()
                         }) {
                             Image(systemName:  "greaterthan.circle")
                                 .resizable()
@@ -53,8 +52,8 @@ struct MainView: View {
                                 .foregroundColor(Colors.nameView)
                         }
                         .padding(.trailing, 20)
-                        .popover(isPresented: $showThemes) {
-                            ChooseThemes(viewModel: viewModel)
+                        .popover(isPresented: $isShowingTopics) {
+                            ChooseTopics(viewModel: viewModel)
                         }
                     }
                     .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
@@ -81,12 +80,11 @@ struct MainView: View {
                             .background(LinearGradient(gradient: Gradient(colors: [Colors.pinkButton, Color.white]), startPoint: .bottom, endPoint: .top))
                             .cornerRadius(20)
                             .shadow(color: Colors.nameView, radius: 2, x: 0, y: 1)
-                        
                     }
                     .shadow(color: Colors.pinkButton, radius: 2, x: 0, y: 5)
                     .padding(.horizontal, 20)
                     Spacer()
-                    NavigationLink(destination: ScoreView()) {
+                    NavigationLink(destination: ScoreView() ) {
                         HStack{
                             Text("Your score: ")
                                 .font(.custom("Arial Rounded MT Bold", size: 14))
@@ -116,5 +114,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView()
+    MainView(viewModel: MainViewModel(), coordinator: MainCoordinator())
 }

@@ -6,9 +6,22 @@ import SwiftUI
 
 @main
 struct MathQuizApp: App {
+    @StateObject private var viewModel = MainViewModel()
+    var coordinator: MainCoordinator
+
+    init() {
+        let navigationController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: navigationController)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(viewModel: viewModel, coordinator: coordinator)
+                .environmentObject(viewModel)
+                .onAppear {
+                    coordinator.start()
+                }
+            
         }
     }
 }

@@ -122,7 +122,6 @@ extension QuizViewModel {
     
     static var uniqueThemes: [String] {
         let themes = quizData.map { $0.theme }
-        print("test")
         return Array(Set(themes))
     }
 }

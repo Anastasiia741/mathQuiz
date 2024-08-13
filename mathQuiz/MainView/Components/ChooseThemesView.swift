@@ -1,16 +1,11 @@
-//
 //  ChooseThemesView.swift
 //  mathQuiz
-//
 //  Created by Анастасия Набатова on 5/8/24.
-//
 
 import SwiftUI
 
-
-struct ChooseThemes: View {
+struct ChooseTopics: View {
     var viewModel = MainViewModel()
-    
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -47,5 +42,5 @@ struct ChooseThemes: View {
 
 
 #Preview {
-    ChooseThemes()
+    ChooseTopics()
 }

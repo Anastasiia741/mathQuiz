@@ -3,6 +3,7 @@
 //  Created by Анастасия Набатова on 10/4/24.
 
 import SwiftUI
+import AVFoundation
 
 class QuizViewModel: ObservableObject {
     @Published var model: Quiz
@@ -36,6 +37,8 @@ class QuizViewModel: ObservableObject {
             if selectedOption.optionId ==  model.quizModel.answer {
                 model.quizModel.optionsList[index].isMatched = true
                 model.quizModel.optionsList[index].isSelected = true
+                SoundManager.instance.playSound(sound: .winner)
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     if(QuizViewModel.currentIndex < QuizViewModel.quizData.count - 1) {
                        QuizViewModel.currentIndex += 1
@@ -46,10 +49,10 @@ class QuizViewModel: ObservableObject {
                     }
                 }
             } else {
-                model.quizModel.optionsList[index].isMatched = false
                 model.quizModel.optionsList[index].isSelected = true
+                SoundManager.instance.playSound(sound: .nope)
+
             }
-            
         }
     }
     

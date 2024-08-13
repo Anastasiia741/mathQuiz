@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		711DF4DE2C6BCCFC005349DD /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DD2C6BCCFC005349DD /* winner.mp3 */; };
+		711DF4E02C6BCD03005349DD /* nope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DF2C6BCD03005349DD /* nope.mp3 */; };
+		711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E12C6BCD41005349DD /* SoundManager.swift */; };
 		7124F87E2BC557B30032356E /* MathQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87D2BC557B30032356E /* MathQuizApp.swift */; };
 		7124F8802BC557B30032356E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87F2BC557B30032356E /* MainView.swift */; };
 		7124F8822BC557B40032356E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7124F8812BC557B40032356E /* Assets.xcassets */; };
@@ -24,7 +27,9 @@
 		7124F8BC2BC6D4120032356E /* OptionsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8BB2BC6D4120032356E /* OptionsGridView.swift */; };
 		7124F8BE2BC6F1C50032356E /* QuizCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8BD2BC6F1C50032356E /* QuizCompletedView.swift */; };
 		71774D192C612ED3002ED571 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D182C612ED3002ED571 /* ScoreView.swift */; };
-		71774D1B2C613110002ED571 /* ChooseThemesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1A2C613110002ED571 /* ChooseThemesView.swift */; };
+		71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1A2C613110002ED571 /* ChooseTopics.swift */; };
+		71774D1E2C667197002ED571 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1D2C667197002ED571 /* Coordinator.swift */; };
+		71774D212C66722C002ED571 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D202C66722C002ED571 /* MainCoordinator.swift */; };
 		71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A8F2BFF859000BF6DF8 /* Extension.swift */; };
 		71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */; };
 /* End PBXBuildFile section */
@@ -47,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		711DF4DD2C6BCCFC005349DD /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
+		711DF4DF2C6BCD03005349DD /* nope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nope.mp3; sourceTree = "<group>"; };
+		711DF4E12C6BCD41005349DD /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7124F87A2BC557B30032356E /* mathQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mathQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7124F87D2BC557B30032356E /* MathQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathQuizApp.swift; sourceTree = "<group>"; };
 		7124F87F2BC557B30032356E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -67,7 +75,9 @@
 		7124F8BB2BC6D4120032356E /* OptionsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsGridView.swift; sourceTree = "<group>"; };
 		7124F8BD2BC6F1C50032356E /* QuizCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCompletedView.swift; sourceTree = "<group>"; };
 		71774D182C612ED3002ED571 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		71774D1A2C613110002ED571 /* ChooseThemesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseThemesView.swift; sourceTree = "<group>"; };
+		71774D1A2C613110002ED571 /* ChooseTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTopics.swift; sourceTree = "<group>"; };
+		71774D1D2C667197002ED571 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		71774D202C66722C002ED571 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		71DF2A8F2BFF859000BF6DF8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +107,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		711DF4DC2C6BCCE6005349DD /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				711DF4E12C6BCD41005349DD /* SoundManager.swift */,
+				711DF4DF2C6BCD03005349DD /* nope.mp3 */,
+				711DF4DD2C6BCCFC005349DD /* winner.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		7124F8712BC557B30032356E = {
 			isa = PBXGroup;
 			children = (
@@ -122,9 +142,11 @@
 			children = (
 				7124F87D2BC557B30032356E /* MathQuizApp.swift */,
 				7124F8B32BC6C5F40032356E /* MainView */,
-				7124F8B52BC6C6120032356E /* QuizView */,
 				7124F8B42BC6C6020032356E /* HistoryView */,
+				71774D222C667A4F002ED571 /* ScoreView */,
+				7124F8B52BC6C6120032356E /* QuizView */,
 				7124F8BF2BC7DBD20032356E /* QuizCompletedView */,
+				71774D1F2C667215002ED571 /* Coordinator */,
 				7124F8B02BC6C5B80032356E /* Model */,
 				7124F8AB2BC57C510032356E /* Components */,
 				7124F8812BC557B40032356E /* Assets.xcassets */,
@@ -162,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				7124F8A92BC57C1A0032356E /* Colors.swift */,
+				711DF4DC2C6BCCE6005349DD /* Sounds */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -188,7 +211,6 @@
 		7124F8B42BC6C6020032356E /* HistoryView */ = {
 			isa = PBXGroup;
 			children = (
-				71774D182C612ED3002ED571 /* ScoreView.swift */,
 				7124F8AE2BC6C2750032356E /* HistoryView.swift */,
 			);
 			path = HistoryView;
@@ -225,9 +247,26 @@
 		71774D1C2C61313B002ED571 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				71774D1A2C613110002ED571 /* ChooseThemesView.swift */,
+				71774D1A2C613110002ED571 /* ChooseTopics.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		71774D1F2C667215002ED571 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				71774D1D2C667197002ED571 /* Coordinator.swift */,
+				71774D202C66722C002ED571 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		71774D222C667A4F002ED571 /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				71774D182C612ED3002ED571 /* ScoreView.swift */,
+			);
+			path = ScoreView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,7 +373,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				711DF4E02C6BCD03005349DD /* nope.mp3 in Resources */,
 				7124F8852BC557B40032356E /* Preview Assets.xcassets in Resources */,
+				711DF4DE2C6BCCFC005349DD /* winner.mp3 in Resources */,
 				7124F8822BC557B40032356E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,11 +401,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71774D1B2C613110002ED571 /* ChooseThemesView.swift in Sources */,
+				71774D212C66722C002ED571 /* MainCoordinator.swift in Sources */,
+				71774D1E2C667197002ED571 /* Coordinator.swift in Sources */,
+				71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */,
 				7124F8B92BC6D0070032356E /* ReusableText.swift in Sources */,
 				7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */,
 				7124F8AF2BC6C2750032356E /* HistoryView.swift in Sources */,
 				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
+				711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */,
 				7124F8BC2BC6D4120032356E /* OptionsGridView.swift in Sources */,
 				7124F8802BC557B30032356E /* MainView.swift in Sources */,
 				7124F8B72BC6C6210032356E /* QuizViewModel.swift in Sources */,

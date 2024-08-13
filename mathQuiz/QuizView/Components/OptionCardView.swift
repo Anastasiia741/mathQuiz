@@ -20,7 +20,6 @@ struct OptionCardView : View {
         .foregroundColor(.white)
         .padding()
         .frame(maxWidth: .infinity, minHeight: 50)
-        .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.quizViewBackground]), startPoint: .bottom, endPoint: .top))
         .background(setBackgroundColor())
         .cornerRadius(25)
         .shadow(color: Colors.nameView, radius: 2, x: 0, y: 2)
@@ -28,21 +27,22 @@ struct OptionCardView : View {
     
     func setBackgroundColor() -> AnyView {
         if (quizOption.isMatched) && (quizOption.isSelected) {
-            return AnyView(Color.green)
+            return AnyView(Colors.yellowButton)
         } else if (!(quizOption.isMatched) && (quizOption.isSelected)) {
-            return AnyView(Color.red)
+            return AnyView(Colors.redButton)
         } else {
             return AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.quizViewBackground]), startPoint: .bottom, endPoint: .top))
         }
     }
+    
 }
 
 struct OptionView: View {
     var quizOption: QuizOption
     var body: some View {
         Text(quizOption.option)
-            .frame(width: 150, height: 38)
             .font(.system(size: 20, weight: .bold, design: .rounded))
+            .shadow(color: Colors.nameView, radius: 2, x: 0, y: 2)
     }
 }
 

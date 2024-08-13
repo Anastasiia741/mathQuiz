@@ -5,8 +5,10 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var viewModel = MainViewModel()
-    @State private var showThemes: Bool = false
+    @ObservedObject var viewModel: MainViewModel
+    var coordinator: MainCoordinator
+    @State private var selectedTopic: String?
+    @State private var isShowingTopics = false
     
     var body: some View {
         NavigationView {
@@ -33,7 +35,7 @@ struct MainView: View {
                             Text("Selected topic")
                                 .font(.custom("Arial Rounded MT", size: 16))
                                 .foregroundColor(.gray)
-                            Text(viewModel.selectedTheme ?? "")
+                            Text(viewModel.selectedTopic ?? "")
                                 .font(.custom("Arial Rounded MT Bold", size: 18))
                                 .foregroundColor(Colors.nameView)
                                 .padding(.top, 5)
@@ -42,8 +44,8 @@ struct MainView: View {
                         .padding(.vertical)
                         Spacer()
                         Button(action: {
-                            withAnimation {
-                                showThemes.toggle()
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isShowingTopics.toggle()
                             }
                         }) {
                             Image(systemName:  "greaterthan.circle")
@@ -53,8 +55,8 @@ struct MainView: View {
                                 .foregroundColor(Colors.nameView)
                         }
                         .padding(.trailing, 20)
-                        .popover(isPresented: $showThemes) {
-                            ChooseThemes(viewModel: viewModel)
+                        .popover(isPresented: $isShowingTopics) {
+                            ChooseTopics(viewModel: viewModel, isShowingTopic: $isShowingTopics)
                         }
                     }
                     .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
@@ -72,7 +74,7 @@ struct MainView: View {
                             .padding(.horizontal, 20)
                             .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
                     }
-                    NavigationLink(destination: QuizView(theme: viewModel.selectedTheme ?? "")) {
+                    NavigationLink(destination: QuizView(theme: viewModel.selectedTopic ?? "")) {
                         Text("Start")
                             .font(.custom("Arial Rounded MT Bold", size: 20))
                             .foregroundColor(Colors.nameView)
@@ -81,12 +83,11 @@ struct MainView: View {
                             .background(LinearGradient(gradient: Gradient(colors: [Colors.pinkButton, Color.white]), startPoint: .bottom, endPoint: .top))
                             .cornerRadius(20)
                             .shadow(color: Colors.nameView, radius: 2, x: 0, y: 1)
-                        
                     }
                     .shadow(color: Colors.pinkButton, radius: 2, x: 0, y: 5)
                     .padding(.horizontal, 20)
                     Spacer()
-                    NavigationLink(destination: ScoreView()) {
+                    NavigationLink(destination: ScoreView() ) {
                         HStack{
                             Text("Your score: ")
                                 .font(.custom("Arial Rounded MT Bold", size: 14))
@@ -116,5 +117,5 @@ struct MainView: View {
 
 
 #Preview {
-    MainView()
+    MainView(viewModel: MainViewModel(), coordinator: MainCoordinator())
 }

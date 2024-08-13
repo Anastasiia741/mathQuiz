@@ -21,15 +21,16 @@ struct QuizView: View {
                     ReusableText(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 18)
                         .padding(.vertical)
                     ReusableText(text: "Question \(viewModel.model.currentQuestionIndex + 1)/\(viewModel.data.count)", size: 20)
-                } .padding()
-                 .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Colors.nameView.opacity(0.75))
-                    .cornerRadius(12)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.white, lineWidth: 4)
-                    )
+                }
+                .padding()
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(Colors.nameView.opacity(0.75))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.white, lineWidth: 4)
+                )
                 if viewModel.model.quizCompleted {
                     QuizCompletedView(viewModel: viewModel)
                 } else {

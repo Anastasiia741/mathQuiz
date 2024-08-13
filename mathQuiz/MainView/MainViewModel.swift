@@ -6,7 +6,7 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     @Published var name: String = ""
-    @Published var selectedTheme: String?
+    @Published var selectedTopic: String?
     @Published var themes: [String] = []
 
     init() {
@@ -19,11 +19,11 @@ class MainViewModel: ObservableObject {
     
     func saveUserData() {
         UserDefaults.standard.set(name, forKey: "name")
-        UserDefaults.standard.set(selectedTheme, forKey: "topic")
+        UserDefaults.standard.set(selectedTopic, forKey: "topic")
     }
     
     func loadUserData() {
         name = UserDefaults.standard.string(forKey: "name") ?? ""
-        selectedTheme = UserDefaults.standard.string(forKey: "topic")
+        selectedTopic = UserDefaults.standard.string(forKey: "topic")
     }
 }

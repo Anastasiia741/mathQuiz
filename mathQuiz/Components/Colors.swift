@@ -15,4 +15,6 @@ enum Colors {
     static let pinkButton = Color("PinkButton")
     static let quizViewBackground = Color("QuizViewBackground")
     static let selectedButton = Color("SelectedButton")
+    static let redButton = Color("RedButton")
+    static let yellowButton = Color("YellowButton")
 }

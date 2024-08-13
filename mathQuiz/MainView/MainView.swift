@@ -7,7 +7,8 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     var coordinator: MainCoordinator
-    @State var isShowingTopics = false
+    @State private var selectedTopic: String?
+    @State private var isShowingTopics = false
     
     var body: some View {
         NavigationView {
@@ -34,7 +35,7 @@ struct MainView: View {
                             Text("Selected topic")
                                 .font(.custom("Arial Rounded MT", size: 16))
                                 .foregroundColor(.gray)
-                            Text(viewModel.selectedTheme ?? "")
+                            Text(viewModel.selectedTopic ?? "")
                                 .font(.custom("Arial Rounded MT Bold", size: 18))
                                 .foregroundColor(Colors.nameView)
                                 .padding(.top, 5)
@@ -43,7 +44,9 @@ struct MainView: View {
                         .padding(.vertical)
                         Spacer()
                         Button(action: {
-                            isShowingTopics.toggle()
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isShowingTopics.toggle()
+                            }
                         }) {
                             Image(systemName:  "greaterthan.circle")
                                 .resizable()
@@ -53,7 +56,7 @@ struct MainView: View {
                         }
                         .padding(.trailing, 20)
                         .popover(isPresented: $isShowingTopics) {
-                            ChooseTopics(viewModel: viewModel)
+                            ChooseTopics(viewModel: viewModel, isShowingTopic: $isShowingTopics)
                         }
                     }
                     .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
@@ -71,7 +74,7 @@ struct MainView: View {
                             .padding(.horizontal, 20)
                             .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
                     }
-                    NavigationLink(destination: QuizView(theme: viewModel.selectedTheme ?? "")) {
+                    NavigationLink(destination: QuizView(theme: viewModel.selectedTopic ?? "")) {
                         Text("Start")
                             .font(.custom("Arial Rounded MT Bold", size: 20))
                             .foregroundColor(Colors.nameView)

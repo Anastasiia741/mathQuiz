@@ -7,7 +7,7 @@ import SwiftUI
 struct QuizView: View {
     @ObservedObject var viewModel: QuizViewModel
     @State private var showAlert = false
-    
+  
     init(theme: String) {
         self.viewModel = QuizViewModel(theme: theme)
     }
@@ -20,17 +20,23 @@ struct QuizView: View {
                 VStack {
                     ReusableText(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 18)
                         .padding(.vertical)
-                    ReusableText(text: "Question \(viewModel.model.currentQuestionIndex + 1)/\(viewModel.data.count)", size: 20)
+                    ReusableText(text: "Question \(viewModel.currentQuestionIndexText)", size: 20)
+                    ProgressView(value: viewModel.progress)
+                        .progressViewStyle(LinearProgressViewStyle())
+                        .frame(maxWidth: .infinity)
+                        .padding(.top , 30)
+                        .tint(Color.white)
                 }
                 .padding()
-                .foregroundColor(.white)
                 .frame(minWidth: 0, maxWidth: .infinity)
+                .foregroundColor(.white)
                 .background(Colors.nameView.opacity(0.75))
                 .cornerRadius(12)
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(Color.white, lineWidth: 4)
                 )
+                                
                 if viewModel.model.quizCompleted {
                     QuizCompletedView(viewModel: viewModel)
                 } else {

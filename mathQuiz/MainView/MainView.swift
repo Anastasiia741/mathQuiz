@@ -14,6 +14,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 Color("MainView")
+                    //
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 15) {
                     Spacer()

@@ -10,6 +10,18 @@ class QuizViewModel: ObservableObject {
     @State var selectedTheme: String?
     var data: [QuizModel]
     static var currentIndex = 0
+    var progress: Double {
+        let totalQuestions = Double(data.count)
+        let currentQuestionIndex = Double(model.currentQuestionIndex)
+        return max(0, min(currentQuestionIndex / totalQuestions, 1))
+    }
+    var currentQuestionIndexText: String {
+        if model.quizCompleted {
+            return "\(data.count)/\(data.count)"
+        } else {
+            return "\(model.currentQuestionIndex + 1)/\(data.count)"
+        }
+    }
 
     init(theme: String) {
         self.data = QuizViewModel.quizData.filter { $0.theme == theme }

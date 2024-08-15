@@ -3,18 +3,19 @@
 //  Created by Анастасия Набатова on 9/4/24.
 
 import SwiftUI
+import UIKit
 
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
     var coordinator: MainCoordinator
     @State private var selectedTopic: String?
     @State private var isShowingTopics = false
+    @State private var isShowingHistory = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color("MainView")
-                    //
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 15) {
                     Spacer()
@@ -64,8 +65,14 @@ struct MainView: View {
                     .cornerRadius(20)
                     .padding(.horizontal, 20)
                     .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
-                    NavigationLink(destination: HistoryView()) {
-                        Text("Game history")
+                    
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            isShowingHistory.toggle()
+                        }
+                    })
+                    {
+                    Text("Game history")
                             .font(.custom("Arial Rounded MT", size: 18))
                             .foregroundColor(Colors.nameView)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -74,6 +81,9 @@ struct MainView: View {
                             .cornerRadius(20)
                             .padding(.horizontal, 20)
                             .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
+                    }
+                    .popover(isPresented: $isShowingHistory) {
+                        GameHistoryViewControllerWrapper()
                     }
                     NavigationLink(destination: QuizView(theme: viewModel.selectedTopic ?? "")) {
                         Text("Start")

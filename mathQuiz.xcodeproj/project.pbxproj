@@ -10,6 +10,10 @@
 		711DF4DE2C6BCCFC005349DD /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DD2C6BCCFC005349DD /* winner.mp3 */; };
 		711DF4E02C6BCD03005349DD /* nope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DF2C6BCD03005349DD /* nope.mp3 */; };
 		711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E12C6BCD41005349DD /* SoundManager.swift */; };
+		711DF4E42C6D03F8005349DD /* GameHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */; };
+		711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E52C6D044B005349DD /* GamesHistoryView.swift */; };
+		711DF4E82C6D0F4F005349DD /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E72C6D0F4F005349DD /* GameHistoryCell.swift */; };
+		711DF4EB2C6D118B005349DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 711DF4EA2C6D118B005349DD /* SnapKit */; };
 		7124F87E2BC557B30032356E /* MathQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87D2BC557B30032356E /* MathQuizApp.swift */; };
 		7124F8802BC557B30032356E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87F2BC557B30032356E /* MainView.swift */; };
 		7124F8822BC557B40032356E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7124F8812BC557B40032356E /* Assets.xcassets */; };
@@ -20,7 +24,6 @@
 		7124F8A82BC55B530032356E /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8A72BC55B530032356E /* QuizView.swift */; };
 		7124F8AA2BC57C1A0032356E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8A92BC57C1A0032356E /* Colors.swift */; };
 		7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8AC2BC59C3C0032356E /* MainViewModel.swift */; };
-		7124F8AF2BC6C2750032356E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8AE2BC6C2750032356E /* HistoryView.swift */; };
 		7124F8B22BC6C5D60032356E /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8B12BC6C5D60032356E /* QuizModel.swift */; };
 		7124F8B72BC6C6210032356E /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8B62BC6C6210032356E /* QuizViewModel.swift */; };
 		7124F8B92BC6D0070032356E /* ReusableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F8B82BC6D0070032356E /* ReusableText.swift */; };
@@ -55,6 +58,9 @@
 		711DF4DD2C6BCCFC005349DD /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		711DF4DF2C6BCD03005349DD /* nope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nope.mp3; sourceTree = "<group>"; };
 		711DF4E12C6BCD41005349DD /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryViewModel.swift; sourceTree = "<group>"; };
+		711DF4E52C6D044B005349DD /* GamesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesHistoryView.swift; sourceTree = "<group>"; };
+		711DF4E72C6D0F4F005349DD /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		7124F87A2BC557B30032356E /* mathQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mathQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7124F87D2BC557B30032356E /* MathQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathQuizApp.swift; sourceTree = "<group>"; };
 		7124F87F2BC557B30032356E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -68,7 +74,6 @@
 		7124F8A72BC55B530032356E /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		7124F8A92BC57C1A0032356E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7124F8AC2BC59C3C0032356E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		7124F8AE2BC6C2750032356E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		7124F8B12BC6C5D60032356E /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		7124F8B62BC6C6210032356E /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		7124F8B82BC6D0070032356E /* ReusableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableText.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				711DF4EB2C6D118B005349DD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +121,14 @@
 				711DF4DD2C6BCCFC005349DD /* winner.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		711DF4EC2C6E7068005349DD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				711DF4E72C6D0F4F005349DD /* GameHistoryCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7124F8712BC557B30032356E = {
@@ -149,7 +163,6 @@
 				71774D1F2C667215002ED571 /* Coordinator */,
 				7124F8B02BC6C5B80032356E /* Model */,
 				7124F8AB2BC57C510032356E /* Components */,
-				7124F8812BC557B40032356E /* Assets.xcassets */,
 				7124F8832BC557B40032356E /* Preview Content */,
 			);
 			path = mathQuiz;
@@ -183,6 +196,7 @@
 		7124F8AB2BC57C510032356E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7124F8812BC557B40032356E /* Assets.xcassets */,
 				7124F8A92BC57C1A0032356E /* Colors.swift */,
 				711DF4DC2C6BCCE6005349DD /* Sounds */,
 			);
@@ -211,7 +225,9 @@
 		7124F8B42BC6C6020032356E /* HistoryView */ = {
 			isa = PBXGroup;
 			children = (
-				7124F8AE2BC6C2750032356E /* HistoryView.swift */,
+				711DF4E52C6D044B005349DD /* GamesHistoryView.swift */,
+				711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */,
+				711DF4EC2C6E7068005349DD /* Cell */,
 			);
 			path = HistoryView;
 			sourceTree = "<group>";
@@ -285,6 +301,9 @@
 			dependencies = (
 			);
 			name = mathQuiz;
+			packageProductDependencies = (
+				711DF4EA2C6D118B005349DD /* SnapKit */,
+			);
 			productName = mathQuiz;
 			productReference = 7124F87A2BC557B30032356E /* mathQuiz.app */;
 			productType = "com.apple.product-type.application";
@@ -357,6 +376,9 @@
 				Base,
 			);
 			mainGroup = 7124F8712BC557B30032356E;
+			packageReferences = (
+				711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 7124F87B2BC557B30032356E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,18 +428,20 @@
 				71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */,
 				7124F8B92BC6D0070032356E /* ReusableText.swift in Sources */,
 				7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */,
-				7124F8AF2BC6C2750032356E /* HistoryView.swift in Sources */,
 				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
+				711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */,
 				711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */,
 				7124F8BC2BC6D4120032356E /* OptionsGridView.swift in Sources */,
 				7124F8802BC557B30032356E /* MainView.swift in Sources */,
 				7124F8B72BC6C6210032356E /* QuizViewModel.swift in Sources */,
 				7124F8AA2BC57C1A0032356E /* Colors.swift in Sources */,
+				711DF4E82C6D0F4F005349DD /* GameHistoryCell.swift in Sources */,
 				7124F87E2BC557B30032356E /* MathQuizApp.swift in Sources */,
 				7124F8BE2BC6F1C50032356E /* QuizCompletedView.swift in Sources */,
 				7124F8B22BC6C5D60032356E /* QuizModel.swift in Sources */,
 				71774D192C612ED3002ED571 /* ScoreView.swift in Sources */,
 				7124F8A82BC55B530032356E /* QuizView.swift in Sources */,
+				711DF4E42C6D03F8005349DD /* GameHistoryViewModel.swift in Sources */,
 				71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +622,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stasy.mathQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -628,6 +656,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stasy.mathQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -750,6 +782,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		711DF4EA2C6D118B005349DD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7124F8722BC557B30032356E /* Project object */;
 }

@@ -24,7 +24,6 @@ class QuizViewModel: ObservableObject {
     static var currentIndex = 0
     var correctAnswers = 0
     var incorrectAnswers = 0
-    private let resultsKey = "quizResults"
     
     init(theme: String) {
         self.data = QuizViewModel.quizData.filter { $0.theme == theme }
@@ -43,17 +42,14 @@ class QuizViewModel: ObservableObject {
         }
     }
     
-    
     func verifyAnswer(selectedOption: QuizOption) {
         for index in model.quizModel.optionsList.indices {
             model.quizModel.optionsList[index].isMatched = false
             model.quizModel.optionsList[index].isSelected = false
         }
         
-        var isCorrect = false
         if let index = model.quizModel.optionsList.firstIndex(where: { $0.optionId == selectedOption.optionId }) {
             if selectedOption.optionId == model.quizModel.answer {
-                isCorrect = true
                 correctAnswers += 1
                 model.quizModel.optionsList[index].isMatched = true
                 model.quizModel.optionsList[index].isSelected = true
@@ -65,7 +61,7 @@ class QuizViewModel: ObservableObject {
             }
         }
         
-        saveAnswerResult(isCorrect: isCorrect)
+        self.saveGameResult()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if QuizViewModel.currentIndex < QuizViewModel.quizData.count - 1 {
@@ -74,7 +70,7 @@ class QuizViewModel: ObservableObject {
             } else {
                 self.model.quizCompleted = true
                 self.model.quizWinningStatus = self.calculateScore() > 50
-                self.saveGameResult()
+                
             }
         }
     }
@@ -101,14 +97,18 @@ class QuizViewModel: ObservableObject {
     
     func saveResult(_ result: QuizResult) {
         var results = fetchResults()
-        results.append(result)
+        
+        if !results.contains(where: { $0.date == result.date && $0.theme == result.theme }) {
+            results.append(result)
+        }
+        
         if let encoded = try? JSONEncoder().encode(results) {
-            UserDefaults.standard.set(encoded, forKey: resultsKey)
+            UserDefaults.standard.set(encoded, forKey: Accesses.keyHistory)
         }
     }
     
     func fetchResults() -> [QuizResult] {
-        if let data = UserDefaults.standard.data(forKey: resultsKey),
+        if let data = UserDefaults.standard.data(forKey: Accesses.keyHistory),
            let results = try? JSONDecoder().decode([QuizResult].self, from: data) {
             return results
         }

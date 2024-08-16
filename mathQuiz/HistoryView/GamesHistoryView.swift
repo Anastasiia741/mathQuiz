@@ -4,22 +4,14 @@
 
 import UIKit
 import SwiftUI
-import SnapKit
 
 enum GameSection: Int, CaseIterable {
     case  data, data1, data2
 }
 
 final class GameHistoryView: UIViewController{
-    private var titleLabel: UILabel = {
-        let lable = UILabel()
-        lable.text = "Games history"
-        lable.textAlignment = .left
-        lable.textColor = UIColor(named: "NameView")
-        lable.translatesAutoresizingMaskIntoConstraints = false
-        return lable
-    }()
-    
+    private var viewModel = GameHistoryViewModel()
+    private var titleLabel = Labels(style: .history)
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemBackground
@@ -33,80 +25,84 @@ final class GameHistoryView: UIViewController{
         return tableView
     }()
     
-    private let sectionTitles = ["24 January 2024", "2 February 2024", "13 March 2024"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupConstraints()
     }
 }
 
-
-extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    private func setupUI() {
-        view.backgroundColor = UIColor(named: "QuizViewBackground")
+private extension GameHistoryView {
+    func setupUI() {
+        view.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
-        tableView.backgroundColor = UIColor(named: "QuizViewBackground")
+        tableView.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
+        tableView.reloadData()
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(12)
             make.left.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.right.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
         
-        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    
+}
+
+extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        return viewModel.groupedResults.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+        return viewModel.groupedResults[section].date
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = GameSection(rawValue: section)
-        switch section {
-        case .data:
-            return 3
-        case .data1:
-            return 2
-        case .data2:
-            return 1
-        case nil:
-            return 0
-        }
+        return viewModel.groupedResults[section].results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GameHistoryCell.reuseId, for: indexPath) as! GameHistoryCell
+        let quizResult = viewModel.groupedResults[indexPath.section].results[indexPath.row]
         cell.selectionStyle = .none
+        cell.configure(with: quizResult)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completionHandler) in
+            self?.viewModel.removeResult(at: indexPath)
+            completionHandler(true)
+        }
+        
+        let trashIcon = UIImage(systemName: "trash")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        deleteAction.image = trashIcon
+        
+        deleteAction.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)?.withAlphaComponent(0.5)
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        
+        return configuration
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
 
-struct GameHistoryViewControllerWrapper: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> GameHistoryView {
-        return GameHistoryView()
-    }
-    
-    func updateUIViewController(_ uiViewController: GameHistoryView, context: Context) {
-    }
-}
+
+

@@ -17,4 +17,8 @@ enum Colors {
     static let selectedButton = Color("SelectedButton")
     static let redButton = Color("RedButton")
     static let yellowButton = Color("YellowButton")
+    static let quizViewBackgroundUIKit = "QuizViewBackground"
+    static let yellowScope = UIColor(named: "YellowScope") ?? UIColor.yellow
+    static let greenScope = UIColor(named: "GreenScope") ?? UIColor.green
+    static let redScope = UIColor(named:"RedScope") ?? UIColor.red
 }

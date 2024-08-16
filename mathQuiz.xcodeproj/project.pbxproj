@@ -13,8 +13,12 @@
 		711DF4E42C6D03F8005349DD /* GameHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */; };
 		711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E52C6D044B005349DD /* GamesHistoryView.swift */; };
 		711DF4E82C6D0F4F005349DD /* GameHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E72C6D0F4F005349DD /* GameHistoryCell.swift */; };
-		711DF4EB2C6D118B005349DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 711DF4EA2C6D118B005349DD /* SnapKit */; };
 		711DF4EE2C6F8E48005349DD /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4ED2C6F8E48005349DD /* QuizResult.swift */; };
+		711DF4F32C6F9461005349DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 711DF4F22C6F9461005349DD /* SnapKit */; };
+		711DF4F52C6FADCE005349DD /* Accesses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4F42C6FADCE005349DD /* Accesses.swift */; };
+		711DF4F72C6FAEBA005349DD /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4F62C6FAEBA005349DD /* Labels.swift */; };
+		711DF4F92C6FB0ED005349DD /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4F82C6FB0ED005349DD /* Views.swift */; };
+		711DF4FE2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4FD2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift */; };
 		7124F87E2BC557B30032356E /* MathQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87D2BC557B30032356E /* MathQuizApp.swift */; };
 		7124F8802BC557B30032356E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7124F87F2BC557B30032356E /* MainView.swift */; };
 		7124F8822BC557B40032356E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7124F8812BC557B40032356E /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 		711DF4E52C6D044B005349DD /* GamesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesHistoryView.swift; sourceTree = "<group>"; };
 		711DF4E72C6D0F4F005349DD /* GameHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryCell.swift; sourceTree = "<group>"; };
 		711DF4ED2C6F8E48005349DD /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
+		711DF4F42C6FADCE005349DD /* Accesses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accesses.swift; sourceTree = "<group>"; };
+		711DF4F62C6FAEBA005349DD /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		711DF4F82C6FB0ED005349DD /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		711DF4FD2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryViewControllerWrapper.swift; sourceTree = "<group>"; };
 		7124F87A2BC557B30032356E /* mathQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mathQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7124F87D2BC557B30032356E /* MathQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathQuizApp.swift; sourceTree = "<group>"; };
 		7124F87F2BC557B30032356E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -94,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				711DF4EB2C6D118B005349DD /* SnapKit in Frameworks */,
+				711DF4F32C6F9461005349DD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +141,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		711DF4FC2C6FB547005349DD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				711DF4FD2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		7124F8712BC557B30032356E = {
 			isa = PBXGroup;
 			children = (
@@ -158,9 +174,9 @@
 			children = (
 				7124F87D2BC557B30032356E /* MathQuizApp.swift */,
 				7124F8B32BC6C5F40032356E /* MainView */,
+				7124F8B52BC6C6120032356E /* QuizView */,
 				7124F8B42BC6C6020032356E /* HistoryView */,
 				71774D222C667A4F002ED571 /* ScoreView */,
-				7124F8B52BC6C6120032356E /* QuizView */,
 				7124F8BF2BC7DBD20032356E /* QuizCompletedView */,
 				71774D1F2C667215002ED571 /* Coordinator */,
 				7124F8B02BC6C5B80032356E /* Model */,
@@ -200,6 +216,9 @@
 			children = (
 				7124F8812BC557B40032356E /* Assets.xcassets */,
 				7124F8A92BC57C1A0032356E /* Colors.swift */,
+				711DF4F42C6FADCE005349DD /* Accesses.swift */,
+				711DF4F62C6FAEBA005349DD /* Labels.swift */,
+				711DF4F82C6FB0ED005349DD /* Views.swift */,
 				711DF4DC2C6BCCE6005349DD /* Sounds */,
 			);
 			path = Components;
@@ -230,6 +249,7 @@
 			children = (
 				711DF4E52C6D044B005349DD /* GamesHistoryView.swift */,
 				711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */,
+				711DF4FC2C6FB547005349DD /* Components */,
 				711DF4EC2C6E7068005349DD /* Cell */,
 			);
 			path = HistoryView;
@@ -305,7 +325,7 @@
 			);
 			name = mathQuiz;
 			packageProductDependencies = (
-				711DF4EA2C6D118B005349DD /* SnapKit */,
+				711DF4F22C6F9461005349DD /* SnapKit */,
 			);
 			productName = mathQuiz;
 			productReference = 7124F87A2BC557B30032356E /* mathQuiz.app */;
@@ -380,7 +400,7 @@
 			);
 			mainGroup = 7124F8712BC557B30032356E;
 			packageReferences = (
-				711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				711DF4F12C6F9461005349DD /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7124F87B2BC557B30032356E /* Products */;
 			projectDirPath = "";
@@ -431,9 +451,12 @@
 				711DF4EE2C6F8E48005349DD /* QuizResult.swift in Sources */,
 				71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */,
 				7124F8B92BC6D0070032356E /* ReusableText.swift in Sources */,
+				711DF4FE2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift in Sources */,
+				711DF4F52C6FADCE005349DD /* Accesses.swift in Sources */,
 				7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */,
 				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
 				711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */,
+				711DF4F72C6FAEBA005349DD /* Labels.swift in Sources */,
 				711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */,
 				7124F8BC2BC6D4120032356E /* OptionsGridView.swift in Sources */,
 				7124F8802BC557B30032356E /* MainView.swift in Sources */,
@@ -444,6 +467,7 @@
 				7124F8BE2BC6F1C50032356E /* QuizCompletedView.swift in Sources */,
 				7124F8B22BC6C5D60032356E /* QuizModel.swift in Sources */,
 				71774D192C612ED3002ED571 /* ScoreView.swift in Sources */,
+				711DF4F92C6FB0ED005349DD /* Views.swift in Sources */,
 				7124F8A82BC55B530032356E /* QuizView.swift in Sources */,
 				711DF4E42C6D03F8005349DD /* GameHistoryViewModel.swift in Sources */,
 				71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */,
@@ -788,7 +812,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		711DF4F12C6F9461005349DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -799,9 +823,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		711DF4EA2C6D118B005349DD /* SnapKit */ = {
+		711DF4F22C6F9461005349DD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 711DF4E92C6D118B005349DD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 711DF4F12C6F9461005349DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

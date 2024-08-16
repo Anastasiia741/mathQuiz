@@ -18,6 +18,12 @@ struct QuizCompletedView: View {
                             "GAME OVER",
                          size: 30)
                 .padding()
+            VStack(spacing: 10) {
+                ReusableText(text: "Correct Answers: \(viewModel.correctAnswers)", size: 20)
+                ReusableText(text: "Incorrect Answers: \(viewModel.incorrectAnswers)", size: 18)
+                ReusableText(text: "Score: \(viewModel.calculateScore())%", size: 18)
+            }
+            .padding()
             ReusableText(text: viewModel.model.quizWinningStatus
                          ? "Thank you for playing!!"
                          : "Better luck next time",
@@ -27,6 +33,9 @@ struct QuizCompletedView: View {
                 viewModel.restartGame()
             } label: {
                 HStack {
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(.white)
+                        .font(.system(size: 24))
                     Image(systemName: "play.fill")
                         .foregroundColor(.white)
                         .font(.system(size: 24))

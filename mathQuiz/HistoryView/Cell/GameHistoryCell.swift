@@ -6,61 +6,12 @@ import UIKit
 import SnapKit
 
 class GameHistoryCell: UITableViewCell {
-    
-    static let reuseId = "GameHistoryCell"
-    
-    private let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.layer.cornerRadius = 12
-        view.layer.masksToBounds = true
-        view.backgroundColor = UIColor(named: "GameHistoryBackground")
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let resultView: UILabel = {
-        let label = UILabel()
-        label.text = "88%"
-        label.textAlignment = .center
-        label.backgroundColor = .yellow
-        label.textColor = UIColor(named: "NameView")
-        label.layer.cornerRadius = 12
-        label.layer.masksToBounds = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let topicView: UILabel = {
-        let label = UILabel()
-        label.text = "Fractions all questions"
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = UIColor(named: "NameView")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let questionsView: UILabel = {
-        let label = UILabel()
-        label.text = "questions 4/8"
-        label.textAlignment = .left
-        label.font = .systemFont(ofSize: 12)
-        label.textColor = UIColor(named: "NameView")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let scopeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "scope 0"
-        label.font = .systemFont(ofSize: 12)
-        label.textAlignment = .left
-        label.textColor = UIColor(named: "NameView")
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    static let reuseId = Accesses.gameHistoryCell
+    private let containerView = Views()
+    private let resultView = Labels(style: .scope)
+    private let topicView = Labels(style: .result)
+    private let questionsView = Labels(style: .result)
+    private let scopeLabel = Labels(style: .result)
     private lazy var infoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [topicView, questionsView, scopeLabel])
         stackView.axis = .vertical
@@ -80,17 +31,36 @@ class GameHistoryCell: UITableViewCell {
     }
 }
 
+extension GameHistoryCell {
+    func configure(with result: QuizResult) {
+        let score = Int(result.score)
+        resultView.text = "\(Int(result.score))%"
+        topicView.text = result.theme
+        questionsView.text = "Questions \(result.correctAnswers)/\(result.totalQuestions)"
+        scopeLabel.text = "Scope \(result.score) %"
+        
+        let backgroundColor: UIColor
+        switch score {
+        case 0...50:
+            backgroundColor = Colors.redScope
+        case 51...70:
+            backgroundColor = Colors.yellowScope
+        case 71...100:
+            backgroundColor = Colors.greenScope
+        default:
+            backgroundColor = UIColor.gray
+        }
+        resultView.backgroundColor = backgroundColor
+    }
+}
 
 extension GameHistoryCell {
     
     func setupUI() {
-        contentView.backgroundColor = UIColor(named: "QuizViewBackground")
+        contentView.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
         contentView.addSubview(containerView)
         containerView.addSubview(resultView)
         containerView.addSubview(infoStackView)
-        infoStackView.addSubview(topicView)
-        infoStackView.addSubview(questionsView)
-        infoStackView.addSubview(scopeLabel)
     }
     
     func setupConstraints() {

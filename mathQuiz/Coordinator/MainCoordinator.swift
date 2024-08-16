@@ -2,6 +2,7 @@
 //  mathQuiz
 //  Created by Анастасия Набатова on 9/8/24.
 
+import UIKit
 import SwiftUI
 
 class MainCoordinator: Coordinator {
@@ -19,8 +20,10 @@ class MainCoordinator: Coordinator {
     }
     
     func showHistory() {
-        let historyView = HistoryView()
+        let historyView = GameHistoryViewControllerWrapper()
         let hostingController = UIHostingController(rootView: historyView)
         navigationController?.pushViewController(hostingController, animated: true)
     }
 }
+
+

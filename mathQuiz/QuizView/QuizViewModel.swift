@@ -43,34 +43,38 @@ class QuizViewModel: ObservableObject {
     }
     
     func verifyAnswer(selectedOption: QuizOption) {
-        for index in model.quizModel.optionsList.indices {
-            model.quizModel.optionsList[index].isMatched = false
-            model.quizModel.optionsList[index].isSelected = false
-        }
-        
         if let index = model.quizModel.optionsList.firstIndex(where: { $0.optionId == selectedOption.optionId }) {
+            
+            guard !model.quizModel.optionsList[index].isSelected else {
+                return
+            }
+            
+            for i in model.quizModel.optionsList.indices {
+                model.quizModel.optionsList[i].isMatched = false
+                model.quizModel.optionsList[i].isSelected = false
+            }
+            
             if selectedOption.optionId == model.quizModel.answer {
                 correctAnswers += 1
                 model.quizModel.optionsList[index].isMatched = true
-                model.quizModel.optionsList[index].isSelected = true
                 SoundManager.instance.playSound(sound: .winner)
             } else {
                 incorrectAnswers += 1
-                model.quizModel.optionsList[index].isSelected = true
                 SoundManager.instance.playSound(sound: .nope)
             }
-        }
-        
-        self.saveGameResult()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if QuizViewModel.currentIndex < QuizViewModel.quizData.count - 1 {
-                QuizViewModel.currentIndex += 1
-                self.model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
-            } else {
-                self.model.quizCompleted = true
-                self.model.quizWinningStatus = self.calculateScore() > 50
-                
+            
+            model.quizModel.optionsList[index].isSelected = true
+            
+            self.saveGameResult()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if QuizViewModel.currentIndex < QuizViewModel.quizData.count - 1 {
+                    QuizViewModel.currentIndex += 1
+                    self.model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
+                } else {
+                    self.model.quizCompleted = true
+                    self.model.quizWinningStatus = self.calculateScore() > 50
+                }
             }
         }
     }
@@ -117,6 +121,8 @@ class QuizViewModel: ObservableObject {
     
     func restartGame() {
         QuizViewModel.currentIndex = 0
+        correctAnswers = 0
+        incorrectAnswers = 0
         model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
     }
 }

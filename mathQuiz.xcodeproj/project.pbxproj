@@ -38,6 +38,7 @@
 		71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1A2C613110002ED571 /* ChooseTopics.swift */; };
 		71774D1E2C667197002ED571 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1D2C667197002ED571 /* Coordinator.swift */; };
 		71774D212C66722C002ED571 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D202C66722C002ED571 /* MainCoordinator.swift */; };
+		71985D2D2C75188F0048B09E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D2C2C75188F0048B09E /* PlaceholderView.swift */; };
 		71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A8F2BFF859000BF6DF8 /* Extension.swift */; };
 		71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		71774D1A2C613110002ED571 /* ChooseTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTopics.swift; sourceTree = "<group>"; };
 		71774D1D2C667197002ED571 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		71774D202C66722C002ED571 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		71985D2C2C75188F0048B09E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		71DF2A8F2BFF859000BF6DF8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				711DF4FD2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift */,
+				71985D2C2C75188F0048B09E /* PlaceholderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				7124F8B92BC6D0070032356E /* ReusableText.swift in Sources */,
 				711DF4FE2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift in Sources */,
 				711DF4F52C6FADCE005349DD /* Accesses.swift in Sources */,
+				71985D2D2C75188F0048B09E /* PlaceholderView.swift in Sources */,
 				7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */,
 				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
 				711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */,

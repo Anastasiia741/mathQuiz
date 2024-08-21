@@ -25,20 +25,33 @@ final class GameHistoryView: UIViewController{
         return tableView
     }()
     
+    private lazy var placeholderView: PlaceholderView = {
+        let view = PlaceholderView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.buttonAction = { [weak self] in
+            self?.closeScreen()
+        }
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupConstraints()
+        updateView()
     }
 }
 
 private extension GameHistoryView {
+    
     func setupUI() {
         view.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
+        view.addSubview(placeholderView)
         tableView.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
         tableView.reloadData()
+        updateView()
     }
     
     func setupConstraints() {
@@ -48,16 +61,31 @@ private extension GameHistoryView {
             make.right.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
         
+        placeholderView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func updateView() {
+        let hasGameHistory = !viewModel.groupedResults.isEmpty
+        tableView.isHidden = !hasGameHistory
+        placeholderView.isHidden = hasGameHistory
+    }
+    
+    @objc private func closeScreen() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
 extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        updateView()
         return viewModel.groupedResults.count
     }
     
@@ -83,26 +111,34 @@ extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completionHandler) in
-            self?.viewModel.removeResult(at: indexPath)
-            completionHandler(true)
+            guard let self = self else { return }
+            
+            let alert = UIAlertController(title: "", message: "Are you sure you want to delete this entry?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                completionHandler(false)
+            })
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+                self.viewModel.removeResult(at: indexPath)
+                self.updateView()
+                tableView.reloadData()
+                completionHandler(true)
+            })
+            self.present(alert, animated: true, completion: nil)
         }
         
         let trashIcon = UIImage(systemName: "trash")?.withTintColor(.black, renderingMode: .alwaysOriginal)
         deleteAction.image = trashIcon
-        
         deleteAction.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)?.withAlphaComponent(0.5)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = false
-        
+        tableView.reloadData()
         return configuration
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
-
 
 

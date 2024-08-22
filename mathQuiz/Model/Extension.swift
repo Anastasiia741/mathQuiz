@@ -350,6 +350,7 @@ extension QuizViewModel {
                       optionsList: [QuizOption(id: 194, optionId: "A", option: "x = 5, y = 2", color: Colors.blueButton),
                                     QuizOption(id: 195, optionId: "B", option: "x = 3, y = 2", color: Colors.blueButton),
                                     QuizOption(id: 196, optionId: "C", option: "x = 4, y = 1", color: Colors.blueButton)]),
+            
             QuizModel(theme: "Systems of Equations", question: "Solve the system: x + 2y = 7 and 3x - y = 5",
                       answer: "C", 
                       optionsList: [QuizOption(id: 197, optionId: "A", option: "x = 2, y = 3", color: Colors.blueButton),

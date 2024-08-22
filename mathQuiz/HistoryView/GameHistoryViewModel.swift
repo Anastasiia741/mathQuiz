@@ -31,7 +31,7 @@ final class GameHistoryViewModel: ObservableObject {
         groupedResults.sort { $0.date > $1.date }
     }
     
-    private func fetchResults() -> [QuizResult] {
+    func fetchResults() -> [QuizResult] {
         if let data = UserDefaults.standard.data(forKey: Accesses.keyHistory),
            let results = try? JSONDecoder().decode([QuizResult].self, from: data) {
             return results
@@ -39,7 +39,7 @@ final class GameHistoryViewModel: ObservableObject {
         return []
     }
     
-    private func saveNewResults() {
+    func saveNewResults() {
         if let encoded = try? JSONEncoder().encode(gameResults) {
             UserDefaults.standard.set(encoded, forKey: Accesses.keyHistory)
         }

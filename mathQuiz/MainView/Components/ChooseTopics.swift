@@ -8,7 +8,6 @@ struct ChooseTopics: View {
     var viewModel = MainViewModel()
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
     @Binding var isShowingTopic: Bool
-
     
     var body: some View {
         ZStack {
@@ -17,8 +16,7 @@ struct ChooseTopics: View {
             VStack {
                 Text("Selected topic")
                     .font(.custom("Arial Rounded MT Bold", size: 16))
-                    .foregroundColor(.gray)
-                    .padding(.vertical, 5)
+                    .padding()
                 
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(viewModel.themes, id: \.self) { theme in
@@ -28,9 +26,12 @@ struct ChooseTopics: View {
                         }) {
                             Text(theme)
                                 .font(.custom("Arial Rounded MT Bold", size: 16))
+                                .multilineTextAlignment(.center)
                                 .foregroundColor(Colors.nameView)
-                                .padding()
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
                                 .frame(maxWidth: .infinity)
+                                .frame(height: 80)
                                 .background(viewModel.selectedTopic == theme ? AnyView(Colors.selectedButton) : AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.quizViewBackground]), startPoint: .bottom, endPoint: .top)))
                                 .cornerRadius(25)
                         }

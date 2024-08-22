@@ -10,8 +10,10 @@ struct MainView: View {
     var coordinator: MainCoordinator
     @State private var selectedTopic: String?
     @State private var isShowingTopics = false
+    @State var isShowingSetups = false
     @State private var isShowingHistory = false
     
+    @available(iOS 16.0, *)
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,7 +29,6 @@ struct MainView: View {
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity)
                     }
-                    .frame(height: 50)
                     .background(Color.white)
                     .cornerRadius(20)
                     .shadow(color: Colors.nameView, radius: 5, x: 0, y: 2)
@@ -56,7 +57,7 @@ struct MainView: View {
                                 .frame(width: 25, height: 25)
                                 .foregroundColor(Colors.nameView)
                         }
-                        .padding(.trailing, 20)
+                        .padding()
                         .popover(isPresented: $isShowingTopics) {
                             ChooseTopics(viewModel: viewModel, isShowingTopic: $isShowingTopics)
                         }
@@ -65,25 +66,43 @@ struct MainView: View {
                     .cornerRadius(20)
                     .padding(.horizontal, 20)
                     .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
-                    
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            isShowingHistory.toggle()
+                    HStack {
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isShowingHistory.toggle()
+                            }
+                        })
+                        {
+                            Text("Game history")
+                                .font(.custom("Arial Rounded MT", size: 18))
+                                .foregroundColor(Colors.nameView)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(height: 25)
+                                .padding()
+                                .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                                .cornerRadius(20)
+                                .padding(.leading, 20)
+                                .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
                         }
-                    })
-                    {
-                    Text("Game history")
-                            .font(.custom("Arial Rounded MT", size: 18))
-                            .foregroundColor(Colors.nameView)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                            .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
-                            .cornerRadius(20)
-                            .padding(.horizontal, 20)
-                            .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
-                    }
-                    .popover(isPresented: $isShowingHistory) {
-                        GameHistoryViewControllerWrapper()
+                        .popover(isPresented: $isShowingHistory) {
+                            GameHistoryViewControllerWrapper()
+                        }
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isShowingSetups.toggle()
+                            }
+                        }) {
+                            Image(systemName:  "gear")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(Colors.nameView)
+                                .padding()
+                                .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                                .cornerRadius(20)
+                                .shadow(color: Colors.nameView, radius: 3, x: 0, y: 1)
+                        }
+                        .padding(.trailing, 20)
                     }
                     NavigationLink(destination: QuizView(theme: viewModel.selectedTopic ?? "")) {
                         Text("Start")
@@ -98,20 +117,28 @@ struct MainView: View {
                     .shadow(color: Colors.pinkButton, radius: 2, x: 0, y: 5)
                     .padding(.horizontal, 20)
                     Spacer()
-                    NavigationLink(destination: ScoreView() ) {
-                        HStack{
+                    VStack {
+                        HStack {
+                            Text("Correct answer: ")
+                                .font(.custom("Arial Rounded MT Bold", size: 14))
+                                .foregroundColor(Colors.nameView)
+                            Text("\(viewModel.totalCorrectAnswers)")
+                                .font(.custom("Arial Rounded MT Bold", size: 14))
+                                .foregroundColor(.green)
+                        }.padding(.vertical, 5)
+                        HStack {
                             Text("Your score: ")
                                 .font(.custom("Arial Rounded MT Bold", size: 14))
                                 .foregroundColor(Colors.nameView)
-                            Text("454")
+                            Text("\(viewModel.totalScore)")
                                 .font(.custom("Arial Rounded MT Bold", size: 14))
                                 .foregroundColor(.green)
                         }
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .shadow(color: .gray, radius: 3, x: 0, y: 1)
-                        .padding([.horizontal, .bottom], 10)
                     }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .shadow(color: .gray, radius: 3, x: 0, y: 1)
+                    .padding([.horizontal, .bottom], 10)
                     .onAppear {
                         viewModel.loadUserData()
                         viewModel.saveUserData()
@@ -120,9 +147,11 @@ struct MainView: View {
                         viewModel.saveUserData()
                     }
                 }
+                if isShowingSetups {
+                    CustomDialog(isOpenSetups: $isShowingSetups)
+                }
             }
-            .accentColor(.pink)
-        }
+        }.accentColor(.pink)
     }
 }
 

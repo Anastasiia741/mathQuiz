@@ -5,12 +5,17 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
+    let historyViewModel = GameHistoryViewModel()
+    
     @Published var name: String = ""
     @Published var selectedTopic: String?
     @Published var themes: [String] = []
-
+    @Published var totalCorrectAnswers = 0
+    @Published var totalScore = 0
+    
     init() {
         loadThemes()
+        loadGameHistory()
     }
     
     func loadThemes() {
@@ -25,5 +30,12 @@ class MainViewModel: ObservableObject {
     func loadUserData() {
         name = UserDefaults.standard.string(forKey: "name") ?? ""
         selectedTopic = UserDefaults.standard.string(forKey: "topic")
+    }
+    
+    func loadGameHistory() {
+        let results = historyViewModel.fetchResults()
+        
+        totalCorrectAnswers = results.reduce(0) { $0 + $1.correctAnswers }
+        totalScore = results.reduce(0) { $0 + $1.score }
     }
 }

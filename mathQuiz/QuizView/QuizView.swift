@@ -7,7 +7,7 @@ import SwiftUI
 struct QuizView: View {
     @ObservedObject var viewModel: QuizViewModel
     @State private var showAlert = false
-  
+    
     init(theme: String) {
         self.viewModel = QuizViewModel(theme: theme)
     }
@@ -36,7 +36,7 @@ struct QuizView: View {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(Color.white, lineWidth: 4)
                 )
-                                
+                
                 if viewModel.model.quizCompleted {
                     QuizCompletedView(viewModel: viewModel)
                 } else {

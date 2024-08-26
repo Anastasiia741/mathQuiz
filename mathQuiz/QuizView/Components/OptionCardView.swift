@@ -17,7 +17,7 @@ struct OptionCardView : View {
                 OptionView(quizOption: quizOption)
             }
         }
-        .font(.custom("Arial Rounded MT Bold", size: 16))
+        .font(.custom("Arial Rounded MT", size: 16))
         .foregroundColor(.white)
         .padding()
         .frame(maxWidth: .infinity, minHeight: 50)

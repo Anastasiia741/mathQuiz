@@ -9,6 +9,9 @@ class QuizViewModel: ObservableObject {
     @Published var model: Quiz
     @State var selectedTheme: String?
     var data: [QuizModel]
+    var themeDescription: String {
+          model.quizModel.description ?? "No description"
+      }
     var progress: Double {
         let totalQuestions = Double(data.count)
         let currentQuestionIndex = Double(model.currentQuestionIndex)

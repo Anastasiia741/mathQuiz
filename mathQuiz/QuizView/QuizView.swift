@@ -7,6 +7,8 @@ import SwiftUI
 struct QuizView: View {
     @ObservedObject var viewModel: QuizViewModel
     @State private var showAlert = false
+    @State var isShowingInfo = false
+
     
     init(theme: String) {
         self.viewModel = QuizViewModel(theme: theme)
@@ -18,12 +20,32 @@ struct QuizView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 VStack {
-                    ReusableText(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 18)
-                        .padding(.vertical)
+                    HStack {
+                        ReusableText(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 18)
+                            .padding(.top, 30)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .multilineTextAlignment(.center)
+                            .padding(.leading, 50)
+                        Spacer()
+                        Button(action: {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                isShowingInfo.toggle()
+                            }
+                        }) {
+                            Image(systemName: "info.circle")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                        
+                        .padding([.horizontal], 10)
+                    }
                     ReusableText(text: "Question \(viewModel.currentQuestionIndexText)", size: 20)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    
                     ProgressView(value: viewModel.progress)
                         .progressViewStyle(LinearProgressViewStyle())
                         .frame(maxWidth: .infinity)
+                    
                         .padding(.top , 30)
                         .tint(Color.white)
                 }
@@ -51,6 +73,9 @@ struct QuizView: View {
                     OptionsGridView(viewModel: viewModel)
                         .padding(.bottom, 20)
                 }
+            }
+            if isShowingInfo {
+                InfoDialog(description: viewModel.themeDescription, isOpenSetups: $isShowingInfo)
             }
         }
         .onDisappear {

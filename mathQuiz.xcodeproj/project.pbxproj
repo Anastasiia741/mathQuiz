@@ -36,6 +36,8 @@
 		71774D1B2C613110002ED571 /* ChooseTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1A2C613110002ED571 /* ChooseTopics.swift */; };
 		71774D1E2C667197002ED571 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D1D2C667197002ED571 /* Coordinator.swift */; };
 		71774D212C66722C002ED571 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71774D202C66722C002ED571 /* MainCoordinator.swift */; };
+		719539302C7C9F40008B92F0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7195392F2C7C9F40008B92F0 /* SnapKit */; };
+		719539322C7C9F9A008B92F0 /* InfoDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539312C7C9F9A008B92F0 /* InfoDialog.swift */; };
 		71985D2D2C75188F0048B09E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D2C2C75188F0048B09E /* PlaceholderView.swift */; };
 		71985D322C777C720048B09E /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D312C777C720048B09E /* CustomDialog.swift */; };
 		71985D352C77AA7E0048B09E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71985D342C77AA7E0048B09E /* SnapKit */; };
@@ -93,6 +95,7 @@
 		71774D1A2C613110002ED571 /* ChooseTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTopics.swift; sourceTree = "<group>"; };
 		71774D1D2C667197002ED571 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		71774D202C66722C002ED571 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		719539312C7C9F9A008B92F0 /* InfoDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDialog.swift; sourceTree = "<group>"; };
 		71985D2C2C75188F0048B09E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		71985D312C777C720048B09E /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		71DF2A8F2BFF859000BF6DF8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -104,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71985D352C77AA7E0048B09E /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				7124F8BB2BC6D4120032356E /* OptionsGridView.swift */,
+				719539312C7C9F9A008B92F0 /* InfoDialog.swift */,
 				71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */,
 				7124F8B82BC6D0070032356E /* ReusableText.swift */,
 			);
@@ -320,7 +323,6 @@
 			);
 			name = mathQuiz;
 			packageProductDependencies = (
-				71985D342C77AA7E0048B09E /* SnapKit */,
 			);
 			productName = mathQuiz;
 			productReference = 7124F87A2BC557B30032356E /* mathQuiz.app */;
@@ -395,7 +397,6 @@
 			);
 			mainGroup = 7124F8712BC557B30032356E;
 			packageReferences = (
-				71985D332C77AA7E0048B09E /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7124F87B2BC557B30032356E /* Products */;
 			projectDirPath = "";
@@ -454,6 +455,7 @@
 				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
 				711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */,
 				711DF4F72C6FAEBA005349DD /* Labels.swift in Sources */,
+				719539322C7C9F9A008B92F0 /* InfoDialog.swift in Sources */,
 				711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */,
 				7124F8BC2BC6D4120032356E /* OptionsGridView.swift in Sources */,
 				7124F8802BC557B30032356E /* MainView.swift in Sources */,
@@ -808,7 +810,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		71985D332C77AA7E0048B09E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -819,9 +821,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		71985D342C77AA7E0048B09E /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 71985D332C77AA7E0048B09E /* XCRemoteSwiftPackageReference "SnapKit" */;
+
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

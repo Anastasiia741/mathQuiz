@@ -13,7 +13,6 @@ struct MainView: View {
     @State var isShowingSetups = false
     @State private var isShowingHistory = false
     
-    @available(iOS 16.0, *)
     var body: some View {
         NavigationView {
             ZStack {

@@ -40,6 +40,7 @@
 		719539322C7C9F9A008B92F0 /* InfoDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539312C7C9F9A008B92F0 /* InfoDialog.swift */; };
 		71985D2D2C75188F0048B09E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D2C2C75188F0048B09E /* PlaceholderView.swift */; };
 		71985D322C777C720048B09E /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D312C777C720048B09E /* CustomDialog.swift */; };
+		71985D352C77AA7E0048B09E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71985D342C77AA7E0048B09E /* SnapKit */; };
 		71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A8F2BFF859000BF6DF8 /* Extension.swift */; };
 		71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */; };
 /* End PBXBuildFile section */
@@ -106,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				719539302C7C9F40008B92F0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +323,6 @@
 			);
 			name = mathQuiz;
 			packageProductDependencies = (
-				7195392F2C7C9F40008B92F0 /* SnapKit */,
 			);
 			productName = mathQuiz;
 			productReference = 7124F87A2BC557B30032356E /* mathQuiz.app */;
@@ -398,7 +397,6 @@
 			);
 			mainGroup = 7124F8712BC557B30032356E;
 			packageReferences = (
-				7195392E2C7C9F40008B92F0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7124F87B2BC557B30032356E /* Products */;
 			projectDirPath = "";
@@ -812,7 +810,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7195392E2C7C9F40008B92F0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -823,9 +821,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7195392F2C7C9F40008B92F0 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7195392E2C7C9F40008B92F0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

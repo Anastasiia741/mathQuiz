@@ -5,13 +5,14 @@
 import SwiftUI
 import AVFoundation
 
-class QuizViewModel: ObservableObject {
+final class QuizViewModel: ObservableObject {
+    
     @Published var model: Quiz
     @State var selectedTheme: String?
-    var data: [QuizModel]
+    private var data: [QuizModel]
     var themeDescription: String {
-          model.quizModel.description ?? "No description"
-      }
+        model.quizModel.description ?? "No description"
+    }
     var progress: Double {
         let totalQuestions = Double(data.count)
         let currentQuestionIndex = Double(model.currentQuestionIndex)

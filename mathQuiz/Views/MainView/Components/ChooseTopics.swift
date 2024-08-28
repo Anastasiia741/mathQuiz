@@ -12,11 +12,10 @@ struct ChooseTopics: View {
     var body: some View {
         ScrollView{
             ZStack {
-                Color("MainView")
+                Color(.mainView)
                     .edgesIgnoringSafeArea(.all)
                 VStack {
-                    Text("Selected topic")
-                        .font(.custom("Arial Rounded MT Bold", size: 16))
+                    TextView(text: "Selected topic", size: 16, style: .bold, colorStyle: .black)
                         .padding()
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.themes, id: \.self) { theme in
@@ -24,15 +23,13 @@ struct ChooseTopics: View {
                                 viewModel.selectedTopic = theme
                                 isShowingTopic = false
                             }) {
-                                Text(theme)
-                                    .font(.custom("Arial Rounded MT Bold", size: 16))
+                                TextView(text: theme, size: 16, style: .bold, colorStyle: .black)
                                     .multilineTextAlignment(.center)
-                                    .foregroundColor(Colors.nameView)
                                     .padding(.horizontal, 16)
                                     .padding(.vertical, 10)
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 80)
-                                    .background(viewModel.selectedTopic == theme ? AnyView(Colors.selectedButton) : AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.quizViewBackground]), startPoint: .bottom, endPoint: .top)))
+                                    .background(viewModel.selectedTopic == theme ? AnyView(Colors.selectedButton) : AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.topicButtom]), startPoint: .bottom, endPoint: .top)))
                                     .cornerRadius(25)
                             }
                             .shadow(color: Colors.nameView, radius: 2, x: 0, y: 2)

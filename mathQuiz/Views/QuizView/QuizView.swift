@@ -6,7 +6,6 @@ import SwiftUI
 
 struct QuizView: View {
     @ObservedObject var viewModel: QuizViewModel
-    @State private var showAlert = false
     @State var isShowingInfo = false
     
     init(theme: String) {
@@ -15,12 +14,12 @@ struct QuizView: View {
     
     var body: some View {
         ZStack {
-            Color("MainView")
+            Color(.mainView)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 VStack {
                     HStack {
-                        ReusableText(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 18)
+                        TextView(text: "Topic: \(viewModel.selectedTheme ?? "")", size: 20, style: .bold, colorStyle: .white)
                             .padding(.top, 30)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .multilineTextAlignment(.center)
@@ -37,8 +36,8 @@ struct QuizView: View {
                         }
                         .padding([.horizontal], 10)
                     }
-                    ReusableText(text: "Question \(viewModel.currentQuestionIndexText)", size: 20)
-                        .frame(maxWidth: .infinity, alignment: .center)                  
+                    TextView(text: "Question \(viewModel.currentQuestionIndexText)", size: 20, style: .bold, colorStyle: .white)
+                        .frame(maxWidth: .infinity, alignment: .center)
                     ProgressView(value: viewModel.progress)
                         .progressViewStyle(LinearProgressViewStyle())
                         .frame(maxWidth: .infinity)
@@ -60,7 +59,7 @@ struct QuizView: View {
                 } else {
                     VStack{
                         Spacer()
-                        ReusableText(text: viewModel.model.quizModel.question, size: 24).bold()
+                        TextView(text: viewModel.model.quizModel.question, size: 24, style: .bold, colorStyle: .black)
                             .padding()
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, minHeight: 50)
@@ -77,19 +76,6 @@ struct QuizView: View {
             if isShowingInfo {
                 InfoDialog(description: viewModel.themeDescription, isOpenSetups: $isShowingInfo)
             }
-        }
-        .onDisappear {
-            showAlert = true
-        }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("Exit Quiz"),
-                message: Text("Are you sure you want to exit the quiz?"),
-                primaryButton: .default(Text("Yes")) {
-                    self.viewModel.restartGame()
-                },
-                secondaryButton: .cancel()
-            )
         }
     }
 }

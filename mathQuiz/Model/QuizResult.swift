@@ -7,9 +7,9 @@ import Foundation
 struct QuizResult: Codable {
     let date: Date
     let theme: String
-    let totalQuestions: Int
+    var totalQuestions: Int
     let totalAnswers: Int
-    let correctAnswers: Int
+    var correctAnswers: Int
     let incorrectAnswers: Int
-    let score: Int
+    var score: Int
 }

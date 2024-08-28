@@ -13,21 +13,21 @@ struct QuizCompletedView: View {
                 .foregroundColor(Color.yellow)
                 .font(.system(size: 60))
                 .padding()
-            ReusableText(text: viewModel.model.quizWinningStatus ?
+            TextView(text: viewModel.model.quizWinningStatus ?
                          "THAT'S A WRAP" :
                             "GAME OVER",
-                         size: 30)
+                     size: 30, style: .regular, colorStyle: .black)
                 .padding()
             VStack(spacing: 10) {
-                ReusableText(text: "Correct Answers: \(viewModel.correctAnswers)", size: 20)
-                ReusableText(text: "Incorrect Answers: \(viewModel.incorrectAnswers)", size: 18)
-                ReusableText(text: "Score: \(viewModel.calculateScore())%", size: 18)
+                TextView(text: "Correct Answers: \(viewModel.correctAnswers)", size: 20, style: .regular, colorStyle: .black)
+                TextView(text: "Incorrect Answers: \(viewModel.incorrectAnswers)", size: 18, style: .regular, colorStyle: .black)
+                TextView(text: "Score: \(viewModel.calculateScore())%", size: 18, style: .regular, colorStyle: .black)
             }
             .padding()
-            ReusableText(text: viewModel.model.quizWinningStatus
+            TextView(text: viewModel.model.quizWinningStatus
                          ? "Thank you for playing!!"
                          : "Better luck next time",
-                         size: 30)
+                     size: 30, style: .regular, colorStyle: .black)
                 .padding()
             Button {
                 viewModel.restartGame()

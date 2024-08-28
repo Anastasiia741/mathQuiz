@@ -4,23 +4,23 @@
 
 import UIKit
 
-final class PlaceholderView: UIView {
+final class EmptyHistoryView: UIView {
     
-    let placeholderView: UIView = {
+    private let placeholderView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "Cat")
+        image.image = UIImage(named: "cat")
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    let label: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial Rounded MT", size: 18)
         label.textColor = UIColor(named: "NameView")
@@ -30,14 +30,14 @@ final class PlaceholderView: UIView {
         return label
     }()
     
-    let button: UIButton = {
+    private let button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Let's get started", for: .normal)
         button.titleLabel?.font = UIFont(name: "Arial Rounded MT", size: 18)
         button.setTitleColor(UIColor(named: "NameView"), for: .normal)
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
-        button.backgroundColor = UIColor(named: "BlueButton") // Adjust as needed
+        button.backgroundColor = UIColor(named: "BlueButton")
         button.layer.shadowColor = UIColor(named: "NameView")?.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 1)
         button.layer.shadowOpacity = 0.7
@@ -58,6 +58,7 @@ final class PlaceholderView: UIView {
     }
 
     private func commonInit() {
+        backgroundColor = UIColor(named: Colors.nameViewUIKit)
         addSubview(placeholderView)
         placeholderView.addSubview(imageView)
         placeholderView.addSubview(label)

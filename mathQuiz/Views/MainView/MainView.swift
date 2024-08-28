@@ -15,6 +15,7 @@ struct MainView: View {
     @State private var isShowingHistory = false
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 Color(.mainView)

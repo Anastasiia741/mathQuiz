@@ -10,9 +10,9 @@ struct OptionCardView : View {
     var body: some View {
         VStack {
             if (quizOption.isMatched) && (quizOption.isSelected) {
-                OptionStatusImageView(imageName: "checkmark", color: .green)
+                OptionStatusImageView(imageName: Images.checkmark, color: .green)
             } else if (!(quizOption.isMatched) && (quizOption.isSelected)) {
-                OptionStatusImageView(imageName: "xmark", color: .red)
+                OptionStatusImageView(imageName: Images.xmark, color: .red)
             } else {
                 OptionView(quizOption: quizOption)
             }
@@ -23,7 +23,7 @@ struct OptionCardView : View {
         .frame(maxWidth: .infinity, minHeight: 50)
         .background(setBackgroundColor())
         .cornerRadius(25)
-        .shadow(color: Colors.nameView, radius: 2, x: 0, y: 2)
+        .shadow(color: .nameView, radius: 2, x: 0, y: 2)
     }
     
     func setBackgroundColor() -> AnyView {
@@ -32,17 +32,15 @@ struct OptionCardView : View {
         } else if (!(quizOption.isMatched) && (quizOption.isSelected)) {
             return AnyView(Colors.redButton)
         } else {
-            return AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.quizViewBackground]), startPoint: .bottom, endPoint: .top))
+            return AnyView(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Colors.topicButtom]), startPoint: .bottom, endPoint: .top))
         }
     }
-    
 }
 
 struct OptionView: View {
     var quizOption: QuizOption
     var body: some View {
-        Text(quizOption.option)
-            .font(.system(size: 20, weight: .bold, design: .rounded))
+        TextView(text: quizOption.option, size: 20, style: .bold, colorStyle: .white)
             .shadow(color: Colors.nameView, radius: 2, x: 0, y: 2)
     }
 }

@@ -1,13 +1,12 @@
-//  CustomDialog.swift
+//  InfoDialog.swift
 //  mathQuiz
-//  Created by Анастасия Набатова on 22/8/24.
+//  Created by Анастасия Набатова on 26/8/24.
 
 import SwiftUI
 
-struct CustomDialog: View {
+struct InfoDialog: View {
     @State private var offset: CGFloat = 1000
-    @State private var isOnSounds = false
-    @State private var isOnPush = false
+    var description: String?
     @Binding var isOpenSetups: Bool
     
     var body: some View {
@@ -15,35 +14,25 @@ struct CustomDialog: View {
             Color(.gray)
                 .opacity(0.1)
                 .onTapGesture {
-                    closeCustomDialog()
+                    closeInfoDialog()
                 }
             VStack{
-                ReusableText(text: "Setups", size: 18)
+                TextView(text: description ?? "No description", size: 16, style: .regular, colorStyle: .black)
                     .padding()
-                Toggle("Sounds", isOn: $isOnSounds)
-                    .toggleStyle(SwitchToggleStyle())
-                    .padding(.horizontal)
-                Toggle("Push notification", isOn: $isOnPush)
-                    .toggleStyle(SwitchToggleStyle())
-                    .padding(.horizontal)
-                    .padding(.vertical)
                 Button {
-                    closeCustomDialog()
+                    closeInfoDialog()
                 } label: {
-                    Text("Close")
-                        .font(.custom("Arial Rounded MT Bold", size: 20))
-                        .foregroundColor(Colors.nameView)
+                    TextView(text: "Close", size: 20, style: .bold, colorStyle: .black)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
                         .background(LinearGradient(gradient: Gradient(colors: [.red.opacity(0.5), Color.white]), startPoint: .bottom, endPoint: .top))
                         .cornerRadius(20)
                         .shadow(color: Colors.nameView, radius: 2, x: 0, y: 1)
-                    
                 }
             }
             .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
             .padding()
-            .background(Colors.quizViewBackground)
+            .background(.topicButtom)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .shadow(radius: 20)
             .padding(30)
@@ -57,7 +46,7 @@ struct CustomDialog: View {
         .ignoresSafeArea()
     }
     
-    func closeCustomDialog() {
+    func closeInfoDialog() {
         withAnimation(.easeInOut) {
             offset = 1000
         }
@@ -67,8 +56,8 @@ struct CustomDialog: View {
     }
 }
 
-struct CustomDialog_Previews: PreviewProvider {
+struct InfoDialog_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDialog(isOpenSetups: .constant(true))
+        InfoDialog(isOpenSetups: .constant(true))
     }
 }

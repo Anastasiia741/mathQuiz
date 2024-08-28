@@ -36,7 +36,7 @@ extension GameHistoryCell {
         let score = Int(result.score)
         resultView.text = "\(Int(result.score))%"
         topicView.text = result.theme
-        questionsView.text = "Questions \(result.correctAnswers)/\(result.totalQuestions)"
+        questionsView.text = "Correct answers \(result.correctAnswers)/\(result.totalQuestions)"
         scopeLabel.text = "Scope \(result.score) %"
         
         let backgroundColor: UIColor
@@ -57,10 +57,12 @@ extension GameHistoryCell {
 extension GameHistoryCell {
     
     func setupUI() {
-        contentView.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
+        contentView.backgroundColor = UIColor(named: Colors.nameViewUIKit)
         contentView.addSubview(containerView)
         containerView.addSubview(resultView)
         containerView.addSubview(infoStackView)
+        
+        containerView.backgroundColor = .blueButton
     }
     
     func setupConstraints() {

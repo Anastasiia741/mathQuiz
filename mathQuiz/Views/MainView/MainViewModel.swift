@@ -4,9 +4,8 @@
 
 import Foundation
 
-class MainViewModel: ObservableObject {
+final class MainViewModel: ObservableObject {
     let historyViewModel = GameHistoryViewModel()
-    
     @Published var name: String = ""
     @Published var selectedTopic: String?
     @Published var themes: [String] = []
@@ -23,18 +22,17 @@ class MainViewModel: ObservableObject {
     }
     
     func saveUserData() {
-        UserDefaults.standard.set(name, forKey: "name")
-        UserDefaults.standard.set(selectedTopic, forKey: "topic")
+        UserDefaults.standard.set(name, forKey: Accesses.name)
+        UserDefaults.standard.set(selectedTopic, forKey: Accesses.topic)
     }
     
     func loadUserData() {
-        name = UserDefaults.standard.string(forKey: "name") ?? ""
-        selectedTopic = UserDefaults.standard.string(forKey: "topic")
+        name = UserDefaults.standard.string(forKey: Accesses.name) ?? ""
+        selectedTopic = UserDefaults.standard.string(forKey: Accesses.topic)
     }
     
     func loadGameHistory() {
         let results = historyViewModel.fetchResults()
-        
         totalCorrectAnswers = results.reduce(0) { $0 + $1.correctAnswers }
         totalScore = results.reduce(0) { $0 + $1.score }
     }

@@ -5,16 +5,13 @@
 import UIKit
 import SwiftUI
 
-enum GameSection: Int, CaseIterable {
-    case  data, data1, data2
-}
 
 final class GameHistoryView: UIViewController{
     private var viewModel = GameHistoryViewModel()
     private var titleLabel = Labels(style: .history)
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = UIColor(named: Colors.nameViewUIKit) 
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
@@ -24,9 +21,8 @@ final class GameHistoryView: UIViewController{
         tableView.register(GameHistoryCell.self, forCellReuseIdentifier: GameHistoryCell.reuseId)
         return tableView
     }()
-    
-    private lazy var placeholderView: PlaceholderView = {
-        let view = PlaceholderView()
+    private lazy var placeholderView: EmptyHistoryView = {
+        let view = EmptyHistoryView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.buttonAction = { [weak self] in
             self?.closeScreen()
@@ -45,11 +41,11 @@ final class GameHistoryView: UIViewController{
 private extension GameHistoryView {
     
     func setupUI() {
-        view.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
+        view.backgroundColor = UIColor(named: Colors.nameViewUIKit)
         view.addSubview(titleLabel)
         view.addSubview(tableView)
         view.addSubview(placeholderView)
-        tableView.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)
+        tableView.backgroundColor = UIColor(named: Colors.nameViewUIKit)
         tableView.reloadData()
         updateView()
     }
@@ -126,9 +122,9 @@ extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let trashIcon = UIImage(systemName: "trash")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        let trashIcon = UIImage(systemName: Images.trash)?.withTintColor(UIColor(named: "NameView") ?? .nameView, renderingMode: .alwaysOriginal)
         deleteAction.image = trashIcon
-        deleteAction.backgroundColor = UIColor(named: Colors.quizViewBackgroundUIKit)?.withAlphaComponent(0.5)
+        deleteAction.backgroundColor = UIColor(named: Colors.redButtonUIKit)?.withAlphaComponent(0.7)
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = false

@@ -13,9 +13,6 @@ struct MathQuizApp: App {
     init() {
         let navigationController = UINavigationController()
         coordinator = MainCoordinator(navigationController: navigationController)
-        
-      
-//        NotificationManager().resetReminderNotification()
     }
     
     var body: some Scene {
@@ -34,7 +31,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = notificationDelegate
-//        NotificationManager().resetReminderNotification()
         return true
     }
 }

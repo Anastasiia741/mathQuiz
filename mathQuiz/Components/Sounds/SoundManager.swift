@@ -1,9 +1,6 @@
-//
 //  PlaySounds.swift
 //  mathQuiz
-//
 //  Created by Анастасия Набатова on 13/8/24.
-//
 
 import SwiftUI
 import AVKit

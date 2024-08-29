@@ -5,11 +5,12 @@
 import Foundation
 
 struct QuizResult: Codable {
+    let id: UUID
     let date: Date
     let theme: String
     var totalQuestions: Int
-    let totalAnswers: Int
+    var totalAnswers: Int
     var correctAnswers: Int
-    let incorrectAnswers: Int
+    var incorrectAnswers: Int
     var score: Int
 }

@@ -25,24 +25,27 @@ final class QuizViewModel: ObservableObject {
             return "\(model.currentQuestionIndex + 1)/\(data.count)"
         }
     }
-    static var currentIndex = 0
     var correctAnswers = 0
     var incorrectAnswers = 0
+    static var currentIndex = 0
     
     init(theme: String) {
         self.data = QuizViewModel.quizData.filter { $0.theme == theme }
         self.selectedTheme = theme
         self.model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
     }
+}
+
+extension QuizViewModel {
     
     static func createQuizModel(i: Int, data: [QuizModel]) -> Quiz {
         guard !data.isEmpty else {
-            return Quiz(currentQuestionIndex: i, quizModel: QuizModel(theme: "", question: "", answer: "", optionsList: []), quizCompleted: true, quizWinningStatus: false)
+            return Quiz(id: UUID(), currentQuestionIndex: i, quizModel: QuizModel(theme: "", question: "", answer: "", optionsList: []), quizCompleted: true, quizWinningStatus: false)
         }
         if i < data.count {
-            return Quiz(currentQuestionIndex: i, quizModel: data[i], quizCompleted: false)
+            return Quiz(id: UUID(), currentQuestionIndex: i, quizModel: data[i], quizCompleted: false)
         } else {
-            return Quiz(currentQuestionIndex: i, quizModel: data.last!, quizCompleted: true, quizWinningStatus: false)
+            return Quiz(id: UUID(), currentQuestionIndex: i, quizModel: data.last!, quizCompleted: true, quizWinningStatus: false)
         }
     }
     
@@ -69,7 +72,9 @@ final class QuizViewModel: ObservableObject {
             
             model.quizModel.optionsList[index].isSelected = true
             
-            self.saveGameResult()
+            if model.currentQuestionIndex == data.count - 1 {
+                self.saveGameResult()
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if QuizViewModel.currentIndex < QuizViewModel.quizData.count - 1 {
@@ -78,20 +83,37 @@ final class QuizViewModel: ObservableObject {
                 } else {
                     self.model.quizCompleted = true
                     self.model.quizWinningStatus = self.calculateScore() > 50
+                    self.saveGameResult()
                 }
             }
         }
     }
     
+    func restartGame() {
+        QuizViewModel.currentIndex = 0
+        correctAnswers = 0
+        incorrectAnswers = 0
+        model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
+    }
+}
+
+extension QuizViewModel {
+    
     func calculateScore() -> Int {
         return (correctAnswers * 100) / data.count
     }
     
-    func saveAnswerResult(isCorrect: Bool) {
+    func fetchResults() -> [QuizResult] {
+        if let data = UserDefaults.standard.data(forKey: Accesses.keyHistory),
+           let results = try? JSONDecoder().decode([QuizResult].self, from: data) {
+            return results
+        }
+        return []
     }
     
-    func saveGameResult() {
+    private func saveGameResult() {
         let result = QuizResult(
+            id: model.id,
             date: Date(),
             theme: selectedTheme ?? "Unknown",
             totalQuestions: data.count,
@@ -103,30 +125,13 @@ final class QuizViewModel: ObservableObject {
         saveResult(result)
     }
     
-    func saveResult(_ result: QuizResult) {
+    private func saveResult(_ result: QuizResult) {
         var results = fetchResults()
-        
-        if !results.contains(where: { $0.date == result.date && $0.theme == result.theme }) {
+        if !results.contains(where: { $0.date == result.date && $0.theme == result.theme && $0.id == result.id}) {
             results.append(result)
         }
-        
         if let encoded = try? JSONEncoder().encode(results) {
             UserDefaults.standard.set(encoded, forKey: Accesses.keyHistory)
         }
-    }
-    
-    func fetchResults() -> [QuizResult] {
-        if let data = UserDefaults.standard.data(forKey: Accesses.keyHistory),
-           let results = try? JSONDecoder().decode([QuizResult].self, from: data) {
-            return results
-        }
-        return []
-    }
-    
-    func restartGame() {
-        QuizViewModel.currentIndex = 0
-        correctAnswers = 0
-        incorrectAnswers = 0
-        model = QuizViewModel.createQuizModel(i: QuizViewModel.currentIndex, data: self.data)
     }
 }

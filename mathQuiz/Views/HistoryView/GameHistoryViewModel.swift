@@ -2,18 +2,22 @@
 //  mathQuiz
 //  Created by Анастасия Набатова on 14/8/24.
 
-import Foundation
+import SwiftUI
 
 final class GameHistoryViewModel: ObservableObject {
+    let quizViewModel = QuizViewModel(theme: "")
     @Published var gameResults: [QuizResult] = []
     var groupedResults: [(date: String, results: [QuizResult])] = []
     
     init(){
         loadGameResults()
     }
+}
+
+extension GameHistoryViewModel {
     
-    func loadGameResults() {
-        gameResults = fetchResults()
+    private func loadGameResults() {
+        gameResults = quizViewModel.fetchResults()
         groupResultsByDate()
     }
     
@@ -31,15 +35,7 @@ final class GameHistoryViewModel: ObservableObject {
         groupedResults.sort { $0.date > $1.date }
     }
     
-    func fetchResults() -> [QuizResult] {
-        if let data = UserDefaults.standard.data(forKey: Accesses.keyHistory),
-           let results = try? JSONDecoder().decode([QuizResult].self, from: data) {
-            return results
-        }
-        return []
-    }
-    
-    func saveNewResults() {
+    private func saveNewResults() {
         if let encoded = try? JSONEncoder().encode(gameResults) {
             UserDefaults.standard.set(encoded, forKey: Accesses.keyHistory)
         }

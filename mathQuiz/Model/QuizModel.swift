@@ -6,6 +6,7 @@ import Foundation
 import SwiftUI
 
 struct Quiz {
+    let id: UUID
     var currentQuestionIndex: Int
     var quizModel: QuizModel
     var quizCompleted: Bool = false

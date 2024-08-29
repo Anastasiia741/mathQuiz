@@ -5,7 +5,7 @@
 import Foundation
 
 final class MainViewModel: ObservableObject {
-    let historyViewModel = GameHistoryViewModel()
+    let quizViewModel = QuizViewModel(theme: "")
     @Published var name: String = ""
     @Published var selectedTopic: String?
     @Published var themes: [String] = []
@@ -32,7 +32,7 @@ final class MainViewModel: ObservableObject {
     }
     
     func loadGameHistory() {
-        let results = historyViewModel.fetchResults()
+        let results = quizViewModel.fetchResults()
         totalCorrectAnswers = results.reduce(0) { $0 + $1.correctAnswers }
         totalScore = results.reduce(0) { $0 + $1.score }
     }

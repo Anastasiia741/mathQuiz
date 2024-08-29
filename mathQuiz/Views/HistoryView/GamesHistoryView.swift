@@ -5,7 +5,6 @@
 import UIKit
 import SwiftUI
 
-
 final class GameHistoryView: UIViewController{
     private var viewModel = GameHistoryViewModel()
     private var titleLabel = Labels(style: .history)

@@ -9,7 +9,7 @@ enum TitleType {
 }
 
 final class Labels: UILabel {
-   
+    
     init(style: TitleType) {
         super.init(frame: .zero)
         commonInit(style)
@@ -25,7 +25,7 @@ final class Labels: UILabel {
             self.text = "88%"
             self.textAlignment = .center
             self.backgroundColor = .yellow
-            self.textColor = UIColor(named: "NameView")
+            self.textColor = UIColor(named: "nameView")
             self.layer.cornerRadius = 12
             self.layer.masksToBounds = true
             self.translatesAutoresizingMaskIntoConstraints = false
@@ -33,16 +33,13 @@ final class Labels: UILabel {
             self.text = "Fractions all questions"
             self.textAlignment = .left
             self.font = .systemFont(ofSize: 12)
-            self.textColor = UIColor(named: "NameView")
+            self.textColor = UIColor(named: "nameView")
             self.translatesAutoresizingMaskIntoConstraints = false
         case .history:
             self.text = "Games history"
             self.textAlignment = .left
-            self.textColor = UIColor(named: "NameView")
+            self.textColor = UIColor(named: "nameView")
             self.translatesAutoresizingMaskIntoConstraints = false
         }
-        
-       
     }
-    
 }

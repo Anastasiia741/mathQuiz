@@ -15,7 +15,6 @@ struct MainView: View {
     @State private var isShowingHistory = false
     
     var body: some View {
-        
         NavigationView {
             ZStack {
                 Color(.mainView)
@@ -53,7 +52,7 @@ struct MainView: View {
                             ChooseTopics(viewModel: viewModel, isShowingTopic: $isShowingTopics)
                         }
                     }
-                    .background(LinearGradient(gradient: Gradient(colors: [.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                    .gradientBackgroundBlue()
                     .cornerRadius(20)
                     .padding(.horizontal, 20)
                     .shadow(color: .nameView, radius: 3, x: 0, y: 1)
@@ -68,7 +67,7 @@ struct MainView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .frame(height: 25)
                                 .padding()
-                                .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                                .gradientBackgroundBlue()
                                 .cornerRadius(20)
                                 .padding(.leading, 20)
                                 .shadow(color: .nameView, radius: 3, x: 0, y: 1)
@@ -83,7 +82,7 @@ struct MainView: View {
                         }) {
                             ImageView(image: Images.gear!)
                                 .padding()
-                                .background(LinearGradient(gradient: Gradient(colors: [Colors.blueButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                                .gradientBackgroundBlue()
                                 .cornerRadius(20)
                                 .shadow(color: .nameView, radius: 3, x: 0, y: 1)
                         }
@@ -93,7 +92,7 @@ struct MainView: View {
                         TextView(text: "Start", size: 20, style: .bold, colorStyle: .black)
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .padding()
-                            .background(LinearGradient(gradient: Gradient(colors: [Colors.pinkButton, Color.white]), startPoint: .bottom, endPoint: .top))
+                            .gradientBackgroundPink()
                             .cornerRadius(20)
                             .shadow(color: .nameView, radius: 2, x: 0, y: 1)
                     }

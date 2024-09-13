@@ -25,6 +25,7 @@ struct CustomDialog: View {
                     .padding()
                 Toggle("Sounds", isOn: $isOnSounds)
                     .toggleStyle(SwitchToggleStyle())
+                    .foregroundColor(.nameView)
                     .padding(.horizontal)
                     .onChange(of: isOnSounds) { value in
                         UserDefaults.standard.set(value, forKey: Accesses.isOnSounds)
@@ -32,6 +33,7 @@ struct CustomDialog: View {
                     }
                 Toggle("Push notification", isOn: $isOnPush)
                     .toggleStyle(SwitchToggleStyle())
+                    .foregroundColor(.nameView)
                     .padding(.horizontal)
                     .padding(.vertical)
                     .onChange(of: isOnPush) { value in
@@ -44,7 +46,7 @@ struct CustomDialog: View {
                     TextView(text: "Close", size: 20, style: .bold, colorStyle: .black)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
-                        .background(LinearGradient(gradient: Gradient(colors: [.red.opacity(0.5), Color.white]), startPoint: .bottom, endPoint: .top))
+                        .gradientBackgroundRed()
                         .cornerRadius(20)
                         .shadow(color: .nameView, radius: 2, x: 0, y: 1)
                 }
@@ -63,7 +65,6 @@ struct CustomDialog: View {
                 isOnSounds = UserDefaults.standard.bool(forKey: Accesses.isOnSounds)
                 isOnPush = UserDefaults.standard.bool(forKey: Accesses.isOnPush)
                 name = UserDefaults.standard.string(forKey: Accesses.name) ?? ""
-
             }.zIndex(1)
         }
         .ignoresSafeArea()

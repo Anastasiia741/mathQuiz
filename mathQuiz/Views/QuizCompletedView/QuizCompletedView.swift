@@ -14,10 +14,10 @@ struct QuizCompletedView: View {
                 .font(.system(size: 60))
                 .padding()
             TextView(text: viewModel.model.quizWinningStatus ?
-                         "THAT'S A WRAP" :
-                            "GAME OVER",
+                     "THAT'S A WRAP" :
+                        "GAME OVER",
                      size: 30, style: .regular, colorStyle: .black)
-                .padding()
+            .padding()
             VStack(spacing: 10) {
                 TextView(text: "Correct Answers: \(viewModel.correctAnswers)", size: 20, style: .regular, colorStyle: .black)
                 TextView(text: "Incorrect Answers: \(viewModel.incorrectAnswers)", size: 18, style: .regular, colorStyle: .black)
@@ -25,10 +25,10 @@ struct QuizCompletedView: View {
             }
             .padding()
             TextView(text: viewModel.model.quizWinningStatus
-                         ? "Thank you for playing!!"
-                         : "Better luck next time",
+                     ? "Thank you for playing!!"
+                     : "Better luck next time",
                      size: 30, style: .regular, colorStyle: .black)
-                .padding()
+            .padding()
             Button {
                 viewModel.restartGame()
             } label: {

@@ -23,7 +23,7 @@ final class EmptyHistoryView: UIView {
     private let label: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Arial Rounded MT", size: 18)
-        label.textColor = UIColor(named: "NameView")
+        label.textColor = UIColor(named: "nameView")
         label.text = "There are no games yet"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -34,11 +34,11 @@ final class EmptyHistoryView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Let's get started", for: .normal)
         button.titleLabel?.font = UIFont(name: "Arial Rounded MT", size: 18)
-        button.setTitleColor(UIColor(named: "NameView"), for: .normal)
+        button.setTitleColor(UIColor(named: "nameView"), for: .normal)
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
-        button.backgroundColor = UIColor(named: "BlueButton")
-        button.layer.shadowColor = UIColor(named: "NameView")?.cgColor
+        button.backgroundColor = UIColor(named: "blueButton")
+        button.layer.shadowColor = UIColor(named: "nameView")?.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 1)
         button.layer.shadowOpacity = 0.7
         button.layer.shadowRadius = 3

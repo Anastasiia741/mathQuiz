@@ -25,7 +25,7 @@ struct InfoDialog: View {
                     TextView(text: "Close", size: 20, style: .bold, colorStyle: .black)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding()
-                        .background(LinearGradient(gradient: Gradient(colors: [.red.opacity(0.5), Color.white]), startPoint: .bottom, endPoint: .top))
+                        .gradientBackgroundRed()
                         .cornerRadius(20)
                         .shadow(color: Colors.nameView, radius: 2, x: 0, y: 1)
                 }
@@ -45,7 +45,10 @@ struct InfoDialog: View {
         }
         .ignoresSafeArea()
     }
-    
+}
+
+
+extension InfoDialog {
     func closeInfoDialog() {
         withAnimation(.easeInOut) {
             offset = 1000

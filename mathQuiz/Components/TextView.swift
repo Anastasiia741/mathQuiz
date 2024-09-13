@@ -45,7 +45,6 @@ struct TextView: View {
         Text(text)
             .font(.custom(style.fontName, size: size))
             .foregroundColor(colorStyle.color)
-        
     }
 }
 

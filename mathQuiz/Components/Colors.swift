@@ -6,18 +6,18 @@ import Foundation
 import SwiftUI
 
 enum Colors {
-    static let blueButton = Color("BlueButton")
-    static let mainViewBackground = Color("MainViewBackground")
-    static let nameView = Color("NameView")
-    static let pinkButton = Color("PinkButton")
-    static let topicButtom = Color("TopicButtom")
-    static let selectedButton = Color("SelectedButton")
-    static let redButton = Color("RedButton")
-    static let yellowButton = Color("YellowButton")
-    static let nameViewUIKit = "MainView"
-    static let quizViewBackgroundUIKit = "QuizViewBackground"
+    static let blueButton = Color("blueButton")
+    static let mainViewBackground = Color("mainViewBackground")
+    static let nameView = Color("nameView")
+    static let pinkButton = Color("pinkButton")
+    static let topicButtom = Color("topicButtom")
+    static let selectedButton = Color("selectedButton")
+    static let redButton = Color("redButton")
+    static let yellowButton = Color("yellowButton")
+    static let nameViewUIKit = "mainView"
+    static let quizViewBackgroundUIKit = "quizViewBackground"
     static let redButtonUIKit = "redButton"
-    static let yellowScope = UIColor(named: "YellowScope") ?? UIColor.yellow
-    static let greenScope = UIColor(named: "GreenScope") ?? UIColor.green
-    static let redScope = UIColor(named:"RedScope") ?? UIColor.red
+    static let yellowScope = UIColor(named: "yellowScope") ?? UIColor.yellow
+    static let greenScope = UIColor(named: "greenScope") ?? UIColor.green
+    static let redScope = UIColor(named:"redScope") ?? UIColor.red
 }

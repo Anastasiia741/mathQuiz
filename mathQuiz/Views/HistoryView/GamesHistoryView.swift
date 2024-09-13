@@ -121,7 +121,7 @@ extension GameHistoryView: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
         }
         
-        let trashIcon = UIImage(systemName: Images.trash)?.withTintColor(UIColor(named: "NameView") ?? .nameView, renderingMode: .alwaysOriginal)
+        let trashIcon = UIImage(systemName: Images.trash)?.withTintColor(UIColor(named: "nameView") ?? .nameView, renderingMode: .alwaysOriginal)
         deleteAction.image = trashIcon
         deleteAction.backgroundColor = UIColor(named: Colors.redButtonUIKit)?.withAlphaComponent(0.7)
         

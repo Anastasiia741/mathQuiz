@@ -29,14 +29,11 @@ class SoundManager {
     
     func playSound(sound: SoundOption) {
         guard isSoundEnabled else { return }
-
         guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else {
             return
         }
-    
-        
         do {
-            player = try AVAudioPlayer(contentsOf:  url)
+            player = try AVAudioPlayer(contentsOf: url)
             player?.play()
         } catch let error {
             print("Sound error: \(error.localizedDescription)")

@@ -37,6 +37,8 @@ struct ChooseTopics: View {
                     }
                 }
                 .padding(.horizontal)
+                .padding(.vertical)
+                
             }
         }
     }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		711DF4DE2C6BCCFC005349DD /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DD2C6BCCFC005349DD /* winner.mp3 */; };
-		711DF4E02C6BCD03005349DD /* nope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711DF4DF2C6BCD03005349DD /* nope.mp3 */; };
+		711D9B372C945DAA00F4CB60 /* nope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711D9B362C945DAA00F4CB60 /* nope.mp3 */; };
+		711D9B392C945DB000F4CB60 /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 711D9B382C945DB000F4CB60 /* winner.mp3 */; };
 		711DF4E22C6BCD41005349DD /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E12C6BCD41005349DD /* SoundManager.swift */; };
 		711DF4E42C6D03F8005349DD /* GameHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */; };
 		711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711DF4E52C6D044B005349DD /* GamesHistoryView.swift */; };
@@ -40,14 +40,14 @@
 		719539372C7CE3E1008B92F0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539362C7CE3E1008B92F0 /* NotificationManager.swift */; };
 		719539392C7CE74C008B92F0 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539382C7CE74C008B92F0 /* NotificationDelegate.swift */; };
 		7195393B2C7F4013008B92F0 /* Picture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7195393A2C7F4013008B92F0 /* Picture.xcassets */; };
-		7195393E2C7F48DB008B92F0 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195393D2C7F48DB008B92F0 /* HideKeyboard.swift */; };
+		7195393E2C7F48DB008B92F0 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195393D2C7F48DB008B92F0 /* Extentions.swift */; };
 		719539422C7F5737008B92F0 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539412C7F5737008B92F0 /* Images.swift */; };
 		719539442C7F6273008B92F0 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539432C7F6273008B92F0 /* TextFieldView.swift */; };
 		719539462C7F6295008B92F0 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719539452C7F6295008B92F0 /* ImageView.swift */; };
 		71985D2D2C75188F0048B09E /* EmptyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D2C2C75188F0048B09E /* EmptyHistoryView.swift */; };
 		71985D322C777C720048B09E /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71985D312C777C720048B09E /* CustomDialog.swift */; };
 		71985D352C77AA7E0048B09E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 71985D342C77AA7E0048B09E /* SnapKit */; };
-		71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A8F2BFF859000BF6DF8 /* Extension.swift */; };
+		71DF2A902BFF859000BF6DF8 /* Extension QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A8F2BFF859000BF6DF8 /* Extension QuizViewModel.swift */; };
 		71DF2A922BFF861100BF6DF8 /* OptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,8 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		711DF4DD2C6BCCFC005349DD /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
-		711DF4DF2C6BCD03005349DD /* nope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nope.mp3; sourceTree = "<group>"; };
+		711D9B362C945DAA00F4CB60 /* nope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nope.mp3; sourceTree = "<group>"; };
+		711D9B382C945DB000F4CB60 /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		711DF4E12C6BCD41005349DD /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		711DF4E32C6D03F8005349DD /* GameHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryViewModel.swift; sourceTree = "<group>"; };
 		711DF4E52C6D044B005349DD /* GamesHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesHistoryView.swift; sourceTree = "<group>"; };
@@ -105,13 +105,14 @@
 		719539362C7CE3E1008B92F0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		719539382C7CE74C008B92F0 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
 		7195393A2C7F4013008B92F0 /* Picture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Picture.xcassets; sourceTree = "<group>"; };
-		7195393D2C7F48DB008B92F0 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		7195393D2C7F48DB008B92F0 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		719539412C7F5737008B92F0 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		719539432C7F6273008B92F0 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		719539452C7F6295008B92F0 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		7195394B2C80EA67008B92F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		71985D2C2C75188F0048B09E /* EmptyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyHistoryView.swift; sourceTree = "<group>"; };
 		71985D312C777C720048B09E /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
-		71DF2A8F2BFF859000BF6DF8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		71DF2A8F2BFF859000BF6DF8 /* Extension QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension QuizViewModel.swift"; sourceTree = "<group>"; };
 		71DF2A912BFF861100BF6DF8 /* OptionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				711DF4E12C6BCD41005349DD /* SoundManager.swift */,
-				711DF4DF2C6BCD03005349DD /* nope.mp3 */,
-				711DF4DD2C6BCCFC005349DD /* winner.mp3 */,
+				711D9B362C945DAA00F4CB60 /* nope.mp3 */,
+				711D9B382C945DB000F4CB60 /* winner.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -191,6 +192,7 @@
 		7124F87C2BC557B30032356E /* mathQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				7195394B2C80EA67008B92F0 /* Info.plist */,
 				7124F87D2BC557B30032356E /* MathQuizApp.swift */,
 				7195393C2C7F438E008B92F0 /* Views */,
 				71774D1F2C667215002ED571 /* Coordinator */,
@@ -238,7 +240,7 @@
 				711DF4F62C6FAEBA005349DD /* Labels.swift */,
 				711DF4F82C6FB0ED005349DD /* Views.swift */,
 				719539452C7F6295008B92F0 /* ImageView.swift */,
-				7195393D2C7F48DB008B92F0 /* HideKeyboard.swift */,
+				7195393D2C7F48DB008B92F0 /* Extentions.swift */,
 				719539432C7F6273008B92F0 /* TextFieldView.swift */,
 				7124F8B82BC6D0070032356E /* TextView.swift */,
 				711DF4DC2C6BCCE6005349DD /* Sounds */,
@@ -251,7 +253,7 @@
 			children = (
 				7124F8B12BC6C5D60032356E /* QuizModel.swift */,
 				711DF4ED2C6F8E48005349DD /* QuizResult.swift */,
-				71DF2A8F2BFF859000BF6DF8 /* Extension.swift */,
+				71DF2A8F2BFF859000BF6DF8 /* Extension QuizViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -453,10 +455,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				711D9B372C945DAA00F4CB60 /* nope.mp3 in Resources */,
 				7195393B2C7F4013008B92F0 /* Picture.xcassets in Resources */,
-				711DF4E02C6BCD03005349DD /* nope.mp3 in Resources */,
+				711D9B392C945DB000F4CB60 /* winner.mp3 in Resources */,
 				7124F8852BC557B40032356E /* Preview Assets.xcassets in Resources */,
-				711DF4DE2C6BCCFC005349DD /* winner.mp3 in Resources */,
 				7124F8822BC557B40032356E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,9 +494,9 @@
 				711DF4FE2C6FB554005349DD /* GameHistoryViewControllerWrapper.swift in Sources */,
 				711DF4F52C6FADCE005349DD /* Accesses.swift in Sources */,
 				71985D2D2C75188F0048B09E /* EmptyHistoryView.swift in Sources */,
-				7195393E2C7F48DB008B92F0 /* HideKeyboard.swift in Sources */,
+				7195393E2C7F48DB008B92F0 /* Extentions.swift in Sources */,
 				7124F8AD2BC59C3C0032356E /* MainViewModel.swift in Sources */,
-				71DF2A902BFF859000BF6DF8 /* Extension.swift in Sources */,
+				71DF2A902BFF859000BF6DF8 /* Extension QuizViewModel.swift in Sources */,
 				711DF4E62C6D044B005349DD /* GamesHistoryView.swift in Sources */,
 				711DF4F72C6FAEBA005349DD /* Labels.swift in Sources */,
 				719539462C7F6295008B92F0 /* ImageView.swift in Sources */,
@@ -681,6 +683,7 @@
 				DEVELOPMENT_TEAM = 9N6US9U86T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mathQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -714,6 +717,7 @@
 				DEVELOPMENT_TEAM = 9N6US9U86T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = mathQuiz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -858,7 +862,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 5.7.1;
 			};
 		};

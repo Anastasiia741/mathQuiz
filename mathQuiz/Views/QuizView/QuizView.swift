@@ -53,7 +53,6 @@ struct QuizView: View {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(Color.white, lineWidth: 4)
                 )
-                
                 if viewModel.model.quizCompleted {
                     QuizCompletedView(viewModel: viewModel)
                 } else {
